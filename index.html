@@ -1,176 +1,319 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Under the sea – домашнее задание</title>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Countries, Cities & Nationalities — ОГЭ Spelling</title>
 <style>
-:root{--bg1:#bdeefc;--bg2:#5fc3d8;--card:#ffffff;--ink:#0d3b4f;--muted:#4b7384;--acc:#ff8a3d;--acc2:#1f9bb5;--ok:#2e9e5b;--bad:#d64545;--line:#bfe3ec;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#0b2f45;--bg2:#06182a;--card:#12384f;--ink:#e6f7fb;--muted:#9cc5d2;--acc:#ff9c57;--acc2:#4fc3dc;--ok:#52c77f;--bad:#ff7070;--line:#24566f;color-scheme:dark}}
-:root[data-theme="dark"]{--bg1:#0b2f45;--bg2:#06182a;--card:#12384f;--ink:#e6f7fb;--muted:#9cc5d2;--acc:#ff9c57;--acc2:#4fc3dc;--ok:#52c77f;--bad:#ff7070;--line:#24566f;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--paper:#edf1f6;--card:#fff;--ink:#17222e;--navy:#14304f;--red:#c23b32;--green:#2b7a57;--gold:#b8892b;--line:#cfd8e3;--mut:#5d6b7a}
 *{box-sizing:border-box}
-body{margin:0;font-family:"Nunito","Trebuchet MS",Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--bg1),var(--bg2));min-height:100vh;background-attachment:fixed}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg1);z-index:10}
-.wrap{max-width:760px;margin:0 auto;padding:16px 14px 40px}
-h1{margin:6px 0 2px;font-size:28px;text-align:center}
-.sub{text-align:center;color:var(--muted);margin:0 0 14px}
-.sec{background:var(--card);border-radius:20px;padding:16px;margin:14px 0;box-shadow:0 4px 14px rgba(0,60,90,.15)}
-.sec h2{margin:0 0 4px;font-size:20px}
-.hint{color:var(--muted);margin:0 0 12px;font-size:15px}
-button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:10px 16px;background:var(--acc2);color:#fff;font-weight:700}
-button.sec2{background:transparent;color:var(--acc2);border:2px solid var(--acc2)}
-button:disabled{opacity:.6;cursor:default}
-.fc{perspective:900px;margin:0 auto 12px;max-width:340px;height:210px}
-.fi{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;cursor:pointer}
-.fc.flip .fi{transform:rotateY(180deg)}
-.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:3px solid var(--line);background:linear-gradient(160deg,var(--card),var(--bg1))}
-.face.back{transform:rotateY(180deg);border-color:var(--acc)}
-.emo{font-size:56px;line-height:1}
-.en{font-size:34px;font-weight:800}
-.ru{font-size:32px;font-weight:800;color:var(--acc)}
-.tap{font-size:13px;color:var(--muted)}
-.row{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap}
-.cnt{font-weight:700;min-width:60px;text-align:center}
-.q{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 0;border-top:1px dashed var(--line)}
-.q:first-of-type{border-top:0}
-.num{font-weight:800;color:var(--muted);width:22px}
-.wd{font-size:24px;font-weight:800;letter-spacing:1px;min-width:150px}
-.gap{display:inline-block;min-width:34px;border-bottom:3px solid var(--acc);text-align:center;color:var(--acc)}
-.opts{display:flex;gap:6px}
-.opts button{background:var(--bg1);color:var(--ink);border:2px solid var(--line);padding:6px 14px;font-size:18px}
-.opts button.ok,.q.ok{background:var(--ok);color:#fff;border-color:var(--ok)}
-.opts button.bad{background:var(--bad);color:#fff;border-color:var(--bad)}
-input[type=text]{font:inherit;font-size:18px;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:150px}
-input.ok{border-color:var(--ok)}input.bad{border-color:var(--bad)}
-.fb{font-weight:700;min-width:90px}
-.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
-.score{text-align:center;font-weight:800;margin-top:8px}
-textarea{width:100%;height:120px;margin-top:10px;font:inherit;font-size:14px;border:2px solid var(--line);border-radius:10px;padding:8px;background:var(--card);color:var(--ink)}
-.send{width:100%;font-size:18px;background:var(--acc);padding:14px}
-.name{width:100%;margin-bottom:10px}
-.msg{margin-top:8px;font-weight:700;color:var(--ok)}
-select{font:inherit;font-size:18px;padding:5px 8px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--ink)}
-select.ok{border-color:var(--ok);color:var(--ok)}select.bad{border-color:var(--bad);color:var(--bad)}
-.sent{font-size:20px;font-weight:700}
-.bank{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-.bank span{background:var(--bg1);border:2px solid var(--line);border-radius:10px;padding:4px 10px;font-weight:700}
-</style>
-</head>
-<body>
+body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.55 Georgia,serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px 60px}
+header{background:var(--navy);color:#f4ecd6;text-align:center;padding:26px 16px 22px;border-bottom:6px double var(--gold)}
+header small{font:12px system-ui;letter-spacing:.2em;color:#e0c27a}
+header h1{margin:8px 0 6px;font-size:27px;line-height:1.2}
+header p{margin:0 auto;max-width:560px;font:14px system-ui;opacity:.9}
+.prog{position:sticky;top:0;z-index:5;background:var(--paper);padding:8px 0;border-bottom:1px solid var(--line);font:13px system-ui;color:var(--mut)}
+.track{height:6px;background:var(--line);border-radius:3px;margin-top:5px;overflow:hidden}
+#bar{height:100%;width:0;background:var(--green);transition:width .3s}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:18px}
+h2{margin:0 0 4px;font-size:21px;display:flex;gap:10px;align-items:center}
+h2 i{font:700 14px system-ui;font-style:normal;width:30px;height:30px;border:2px solid var(--red);color:var(--red);border-radius:50%;display:grid;place-items:center;transform:rotate(-8deg);flex:none}
+.how{margin:0 0 14px;font:14px system-ui;color:var(--mut)}
+button{font:600 14px system-ui;cursor:pointer;border-radius:8px;border:1px solid var(--navy);background:#fff;color:var(--navy);padding:9px 14px}
+button:hover:not(:disabled){background:#e8eef5}
+button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+button:disabled{opacity:.55;cursor:default}
+.pri{background:var(--navy);color:#fff}.pri:hover:not(:disabled){background:#0d2238}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips button{border-radius:16px;padding:6px 12px}
+.chips button.on{background:var(--navy);color:#fff}
+.cw{margin:12px 0;padding:8px;border-radius:12px;background:repeating-linear-gradient(135deg,var(--red) 0 14px,#fff 14px 28px,var(--navy) 28px 42px,#fff 42px 56px)}
+.cd{perspective:900px;cursor:pointer}
+.in{position:relative;height:240px;transition:transform .5s;transform-style:preserve-3d}
+.cd.flip .in{transform:rotateY(180deg)}
+.fc{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fffdf7;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;gap:8px}
+.bk{transform:rotateY(180deg)}
+.fw{font-size:38px;font-weight:700;color:var(--navy)}
+.rub{font:600 22px system-ui;color:var(--red)}
+.ex{font-size:18px}
+.sp{border-radius:50%;width:44px;height:44px;padding:0;font-size:18px;flex:none}
+.exr{display:flex;gap:10px;align-items:center;justify-content:center}
+.nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center}
+.info{text-align:center;font:13px system-ui;color:var(--mut);margin-top:8px}
+.item{padding:12px;border:1px solid var(--line);border-radius:10px;margin-top:10px;background:#fff}
+.item.ok{border-color:var(--green);background:#f0f8f3}.item.bad{border-color:var(--red);background:#fdf1ef}
+.q{font:600 15px system-ui;margin-bottom:8px}
+.n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;margin-right:8px}
+.opts,.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.opt{font:600 17px Georgia,serif;min-width:110px}
+.opt.ok{background:var(--green);color:#fff;border-color:var(--green)}
+.opt.bad{background:#f6dcd9;border-color:var(--red);color:var(--red);text-decoration:line-through}
+.msg{font:13px system-ui;color:var(--red)}
+.item .msg{margin-top:6px}
+.ok .msg{color:var(--green)}
+.pat{font:700 24px ui-monospace,Menlo,monospace;letter-spacing:.12em;color:var(--navy)}
+input{font:17px Georgia,serif;padding:8px 10px;border:1.5px solid var(--navy);border-radius:8px;min-width:0;width:190px;background:#fff;color:var(--ink)}
+input:disabled{background:#eee}
+.tip{background:#fbf4dc;border-left:4px solid var(--gold);padding:10px 12px;border-radius:6px;font:14px system-ui;margin:0 0 8px}
+.tip b{font-family:Georgia,serif;color:var(--red)}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.bank span{border:1px dashed var(--navy);border-radius:14px;padding:2px 10px;font:14px Georgia,serif;background:#fff}
+.txt{line-height:2.5;font-size:17px}
+.gap{display:inline-flex;align-items:center;gap:4px;vertical-align:middle;line-height:1.3}
+.gap input{width:150px;padding:4px 8px;font-size:16px}
+.gap input::placeholder{font:12px system-ui;color:#7d8a98}
+.gap button{padding:4px 9px}
+.gap.ok input{border-color:var(--green);background:#f0f8f3}.gap.bad input{border-color:var(--red);background:#fdf1ef}
+.gap .msg{max-width:190px;font-size:12px;line-height:1.2}
+.score{font:700 40px Georgia,serif;color:var(--navy);text-align:center}
+#fb{width:100%;height:170px;margin-top:10px;font:13px ui-monospace,monospace}
+#cm{font:600 14px system-ui;color:var(--green);text-align:center;margin-top:10px}
+.res{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+@media(max-width:520px){.fw{font-size:31px}.ex{font-size:16px}input{width:100%}.gap input{width:140px}h2{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.in{transition:none}}
+</style></head><body>
+<header>
+<small>PASSPORT · ОГЭ SPELLING</small>
+<h1>Countries, Cities &amp; Nationalities</h1>
+<p>Выучи карточки, потренируй сложные буквосочетания и проверь себя. Помни: страны, города и национальности пишутся с <b>заглавной буквы</b>.</p>
+</header>
 <div class="wrap">
-<h1>🌊 Under the sea 🐠</h1>
-<p class="sub">Домашнее задание · Unit 5 · уровень A1</p>
+<div class="prog"><span id="pt"></span><div class="track"><div id="bar"></div></div></div>
 
-<div class="sec">
-<h2>1. Карточки с озвучкой</h2>
-<p class="hint">Нажми на 🔊, послушай слово и повтори. Нажми на карточку, чтобы увидеть перевод.</p>
-<div class="fc" id="fc"><div class="fi" id="fi">
-<div class="face"><div class="emo" id="emo"></div><div class="en" id="en"></div><div class="tap">нажми, чтобы перевернуть</div></div>
-<div class="face back"><div class="ru" id="ru"></div></div>
-</div></div>
-<div class="row">
-<button class="sec2" id="prev">← Назад</button>
-<button id="say">🔊 Слушать</button>
-<button class="sec2" id="next">Дальше →</button>
+<section id="s1">
+<h2><i>1</i>Карточки</h2>
+<p class="how">Нажми на карточку, чтобы перевернуть её: на обороте перевод и пример. Нажми 🔊, чтобы послушать, и повтори вслух. Отмечай, что знаешь, а что нужно повторить.</p>
+<div class="chips">
+<button data-c="all" class="on">Все</button><button data-c="c">Страны</button><button data-c="t">Города</button><button data-c="n">Национальности</button>
 </div>
-<div class="row" style="margin-top:10px"><span class="cnt" id="cnt"></span><button class="sec2" id="shuf">🔀 Перемешать</button></div>
+<div class="cw"><div class="cd" id="cd"><div class="in">
+<div class="fc"><div class="fw" id="fw"></div><button class="sp" id="sw" aria-label="Послушать слово">🔊</button><div class="info">нажми, чтобы перевернуть</div></div>
+<div class="fc bk"><div class="rub" id="rb"></div><div class="exr"><div class="ex" id="ex"></div><button class="sp" id="se" aria-label="Послушать пример">🔊</button></div></div>
+</div></div></div>
+<div class="nav">
+<button id="pv">← Назад</button><button id="fl">Перевернуть</button><button id="nx">Вперёд →</button>
 </div>
+<div class="nav" style="margin-top:8px"><button id="mk1">✓ Знаю</button><button id="mk2">↻ Повторить</button></div>
+<div class="info"><span id="cn"></span> · <span id="mk"></span> · знаю: <span id="ks">0</span></div>
+<div class="info" id="nov" hidden>Озвучка недоступна в этом браузере. Попробуй Chrome или Safari.</div>
+</section>
 
-<div class="sec">
-<h2>2. Выбери буквы</h2>
-<p class="hint">Вставь пропущенные буквы. Выбери правильное сочетание букв.</p>
-<div id="t1"></div>
-<div class="score" id="s1"></div>
-</div>
-
-<div class="sec">
-<h2>3. Послушай и напиши</h2>
-<p class="hint">Нажми на 🔊, послушай слово и напиши его по-английски.</p>
+<section id="s2">
+<h2><i>2</i>Выбери правильное написание</h2>
+<p class="how">Три варианта, один верный. Попыток — 2.</p>
+<div class="tip">Сложные места: <b>Britain</b>, <b>Greece</b>, <b>Edinburgh</b> (-burgh), <b>Beijing</b>, <b>Sydney</b>, <b>Egypt</b>; окончания <b>-ian</b> (Italian, Canadian, Brazilian, Egyptian), <b>-ish</b> (British, Scottish, Turkish), <b>-ese</b> (Chinese, Japanese); <b>Swiss</b>, <b>Welsh</b>, <b>Dutch</b>.</div>
 <div id="t2"></div>
-<div class="score" id="s2"></div>
-</div>
+</section>
 
-<div class="sec">
-<h2>4. Вставь слово в предложение</h2>
-<p class="hint">Выбери подходящее слово из списка.</p>
-<div class="bank" id="bank"></div>
+<section id="s3">
+<h2><i>3</i>Пропущенные буквы</h2>
+<p class="how">Впиши слово целиком, с заглавной буквы. Попыток — 2.</p>
 <div id="t3"></div>
-<div class="score" id="s3"></div>
-</div>
+</section>
 
-<div class="sec">
-<h2>5. Результаты для учителя</h2>
-<button class="send" id="send">📋 Скопировать результаты для учителя</button>
-<div class="msg" id="msg"></div>
-<textarea id="out" readonly style="display:none"></textarea>
+<section id="s4">
+<h2><i>4</i>Послушай и напиши</h2>
+<p class="how">Нажми 🔊, послушай слово и напиши его. Перевод подскажет, если звука нет. Попыток — 2.</p>
+<div id="t4"></div>
+</section>
+
+<section id="s5">
+<h2><i>5</i>Мои друзья: вставь слова по смыслу</h2>
+<p class="how">Выбери слово из рамки и впиши его в пропуск. В каждом поле написано, что нужно: <b>страна</b>, <b>город</b> или <b>национальность</b>. Подсказки — достопримечательности и страна в тексте. Нажми ✓ или Enter. Попыток — 2.</p>
+<div class="bank" id="bank"></div>
+<div class="txt" id="t5"></div>
+</section>
+
+<section id="s6">
+<h2><i>✓</i>Результат</h2>
+<div class="score" id="score"></div>
+<div class="info">заданий 2–5, верно в пределах двух попыток</div>
+<div class="res">
+<button class="pri" id="cp">Скопировать учителю</button>
+<button id="rs">Начать заново</button>
 </div>
+<div id="cm" role="status"></div>
+<textarea id="fb" hidden readonly></textarea>
+</section>
 </div>
 
 <script>
-var W=[
-["dolphin","дельфин","🐬"],["seal","тюлень","🦭"],["turtle","черепаха","🐢"],["octopus","осьминог","🐙"],
-["anchor","якорь","⚓"],["starfish","морская звезда","⭐"],["shell","ракушка","🐚"],["seahorse","морской конёк","🌊"],
-["whale","кит","🐋"],["shark","акула","🦈"],["jellyfish","медуза","🪼"],["coral","коралл","🪸"],["sharp teeth","острые зубы","🦷"],["looks like","выглядит как","👀"]];
-var deck=W.slice(),i=0,seen={};
-function $(id){return document.getElementById(id)}
-function speak(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
-function show(){var w=deck[i];$("fc").classList.remove("flip");$("emo").textContent=w[2];$("en").textContent=w[0];$("ru").textContent=w[1];$("cnt").textContent=(i+1)+" / "+deck.length;seen[w[0]]=1}
-$("fi").onclick=function(){$("fc").classList.toggle("flip")};
-$("say").onclick=function(){speak(deck[i][0])};
-$("next").onclick=function(){i=(i+1)%deck.length;show();speak(deck[i][0])};
-$("prev").onclick=function(){i=(i-1+deck.length)%deck.length;show();speak(deck[i][0])};
-$("shuf").onclick=function(){deck.sort(function(){return Math.random()-.5});i=0;show()};
-show();
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>s.trim().toLowerCase();
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+const KEY='oge-countries-cities-v1';
+let S={marks:{},res:{}};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 
-var T1=[["dol_in","ph",["f","ph","fh"],"dolphin"],["an_or","ch",["k","sh","ch"],"anchor"],["_ale","wh",["wh","w","v"],"whale"],["_ark","sh",["ch","s","sh"],"shark"],
-["_ell","sh",["sh","ch","s"],"shell"],["tur_","tle",["tel","tle","tal"],"turtle"],["o_opus","ct",["ct","kt","ck"],"octopus"],["s_horse","ea",["ee","ie","ea"],"seahorse"]];
-var r1=0,d1=0;
-T1.forEach(function(q,n){
-var d=document.createElement("div");d.className="q";
-var wd=q[0].replace("_",'<span class="gap">?</span>');
-d.innerHTML='<span class="num">'+(n+1)+'</span><span class="wd">'+wd+'</span><span class="opts"></span>';
-var o=d.querySelector(".opts"),g=d.querySelector(".gap");
-q[2].forEach(function(c){var b=document.createElement("button");b.textContent=c;b.onclick=function(){
-if(d.dataset.done)return;d.dataset.done=1;d1++;
-if(c===q[1]){b.className="ok";r1++}else{b.className="bad";[].forEach.call(o.children,function(x){if(x.textContent===q[1])x.className="ok"})}
-g.textContent=q[1];speak(q[3]);$("s1").textContent="Результат: "+r1+" из "+T1.length};o.appendChild(b)});
-$("t1").appendChild(d)});
+const RAW=`c|Russia|Россия|I live in Russia.
+c|Britain|Британия|Britain is an island country.
+c|England|Англия|London is the capital of England.
+c|Scotland|Шотландия|Scotland is famous for its mountains.
+c|Ireland|Ирландия|Ireland is a green country.
+c|America|Америка|He wants to travel to America.
+c|Canada|Канада|Canada is very cold in winter.
+c|Australia|Австралия|Kangaroos live in Australia.
+c|France|Франция|We went to France last summer.
+c|Germany|Германия|Berlin is in Germany.
+c|Spain|Испания|It is hot in Spain in July.
+c|Italy|Италия|Pizza comes from Italy.
+c|China|Китай|China is a big country.
+c|Japan|Япония|Tokyo is the capital of Japan.
+c|Greece|Греция|We spent our holiday in Greece.
+c|Turkey|Турция|Turkey has beautiful beaches.
+c|Egypt|Египет|The pyramids are in Egypt.
+c|Brazil|Бразилия|Brazil is famous for football.
+c|India|Индия|India has a lot of people.
+t|Moscow|Москва|Moscow is the capital of Russia.
+t|London|Лондон|Big Ben is in London.
+t|Paris|Париж|The Eiffel Tower is in Paris.
+t|Rome|Рим|Rome is a very old city.
+t|Edinburgh|Эдинбург|Edinburgh is the capital of Scotland.
+t|Washington|Вашингтон|Washington is the capital of the USA.
+t|Madrid|Мадрид|Madrid is the capital of Spain.
+t|Berlin|Берлин|Berlin is a big city in Germany.
+t|Beijing|Пекин|Beijing is the capital of China.
+t|Tokyo|Токио|Tokyo is a huge city.
+t|Sydney|Сидней|Sydney is the biggest city in Australia.
+n|Russian|русский|My friend is Russian.
+n|British|британский|She is a British actress.
+n|English|английский|He is English, he is from London.
+n|American|американский|My teacher is American.
+n|Canadian|канадский|Canadian hockey is famous.
+n|Australian|австралийский|An Australian family lives next door.
+n|French|французский|French cheese is delicious.
+n|German|немецкий|He drives a German car.
+n|Spanish|испанский|I am learning Spanish.
+n|Italian|итальянский|We love Italian food.
+n|Chinese|китайский|Chinese tea is popular.
+n|Japanese|японский|Japanese sushi is tasty.
+n|Scottish|шотландский|Scottish music is lovely.
+n|Irish|ирландский|Irish dance is popular.
+n|Welsh|валлийский|Welsh is an old language.
+n|Swiss|швейцарский|Swiss watches are expensive.
+n|Dutch|голландский|Dutch bikes are everywhere.
+n|Greek|греческий|Greek salad has feta cheese.
+n|Turkish|турецкий|Turkish coffee is strong.
+n|Brazilian|бразильский|Pele was a Brazilian footballer.
+n|Egyptian|египетский|Egyptian pyramids are very old.`;
+const W=RAW.split('\n').map(l=>{const p=l.split('|');return{g:p[0],w:p[1],ru:p[2],e:p[3]}});
 
-var T2=["whale","dolphin","anchor","jellyfish","seahorse"];
-var r2=0,d2=0;
-T2.forEach(function(w,n){
-var d=document.createElement("div");d.className="q";
-d.innerHTML='<span class="num">'+(n+1)+'</span><button class="sec2">🔊</button><input type="text" autocomplete="off" autocapitalize="off" spellcheck="false"><button>Проверить</button><span class="fb"></span>';
-var b=d.children[1],inp=d.children[2],ck=d.children[3],fb=d.children[4];
-b.onclick=function(){speak(w)};
-ck.onclick=function(){if(d.dataset.done||!inp.value.trim())return;d.dataset.done=1;d2++;
-var ok=inp.value.trim().toLowerCase()===w;
-if(ok){r2++;inp.className="ok";fb.className="fb ok";fb.textContent="✔ Верно!"}else{inp.className="bad";fb.className="fb bad";fb.textContent="✘ Надо: "+w}
-inp.readOnly=true;ck.disabled=true;$("s2").textContent="Результат: "+r2+" из "+T2.length};
-$("t2").appendChild(d)});
+const T2=[['Ireland','Irland','Irelend','Ирландия'],['Germany','Jermany','Germeny','Германия'],['Turkey','Turky','Turkei','Турция'],['Brazil','Brasil','Brazyl','Бразилия'],['Italian','Italien','Itallian','итальянский'],['Canadian','Canadean','Canadien','канадский'],['Chinese','Chinease','Chinnese','китайский'],['Japanese','Japaneese','Japanise','японский'],['Egyptian','Egiptian','Egyptien','египетский'],['Dutch','Dutsh','Duch','голландский']];
+const T3=[['Brit__n','Britain','Британия'],['Aust__lia','Australia','Австралия'],['Ed__burgh','Edinburgh','Эдинбург'],['Wash__gton','Washington','Вашингтон'],['Be__ing','Beijing','Пекин'],['Sy__ey','Sydney','Сидней'],['Gr__ce','Greece','Греция'],['E__pt','Egypt','Египет'],['Sco__ish','Scottish','шотландский'],['Wel__','Welsh','валлийский']];
+const T4=[['Scotland','Шотландия'],['Edinburgh','Эдинбург'],['Brazilian','бразильский'],['Egyptian','египетский'],['Washington','Вашингтон'],['Australian','австралийский'],['Turkish','турецкий'],['Sydney','Сидней']];
+const T5=`Hi! I am Anna. I am from Russia. I live in the capital, {Moscow|город}. Red Square is here. I am {Russian|национальность}.
+My friend Pierre lives near the Eiffel Tower, in {Paris|город}. Paris is in {France|страна}. Pierre is {French|национальность}.
+My friend Maria is from Italy. She lives in {Rome|город}, near the Colosseum. She is {Italian|национальность}.
+My friend Omar lives near the pyramids. They are in {Egypt|страна}. Omar is {Egyptian|национальность}.
+My friend Aiko lives in Tokyo. Mount Fuji is in {Japan|страна}. Aiko is {Japanese|национальность}.
+My friend Fiona is from Scotland. She lives in the capital, {Edinburgh|город}. She is {Scottish|национальность}.`;
 
-var T3=[["A ___ is very big.","whale","Он очень большой."],["The ___ has eight arms.","octopus","У него восемь рук."],["A ___ has sharp teeth.","shark","У неё острые зубы."],["A ___ is like a star.","starfish","Она похожа на звезду."],["The ___ is under the boat.","anchor","Он под лодкой."],["A ___ looks like an umbrella.","jellyfish","Она похожа на зонтик."]];
-var r3=0,d3=0;
-var bw=T3.map(function(q){return q[1]}).sort();
-bw.forEach(function(w){var s=document.createElement("span");s.textContent=w;$("bank").appendChild(s)});
-T3.forEach(function(q,n){
-var d=document.createElement("div");d.className="q";
-var p=q[0].split("___");
-d.innerHTML='<span class="num">'+(n+1)+'</span><div><div class="sent">'+p[0]+'<select><option value="">?</option>'+bw.map(function(w){return '<option>'+w+'</option>'}).join("")+'</select>'+p[1]+'</div><div class="fb"></div></div>';
-var sel=d.querySelector("select"),fb=d.querySelector(".fb");
-sel.onchange=function(){if(d.dataset.done||!sel.value)return;d.dataset.done=1;d3++;
-if(sel.value===q[1]){r3++;sel.className="ok";fb.className="fb ok";fb.textContent="✔ Верно!"}else{sel.className="bad";fb.className="fb bad";fb.textContent="✘ Правильно: "+q[1]}
-sel.disabled=true;speak(q[0].replace("___",q[1]));$("s3").textContent="Результат: "+r3+" из "+T3.length};
-$("t3").appendChild(d)});
+/* speech */
+function say(t){try{const s=window.speechSynthesis;s.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.85;const v=s.getVoices();const f=v.find(x=>x.lang==='en-GB')||v.find(x=>x.lang.startsWith('en'));if(f)u.voice=f;s.speak(u)}catch(e){}}
+if(!('speechSynthesis' in window))$('#nov').hidden=false;
 
-$("send").onclick=function(){
-var t="Домашнее задание: Under the sea (A1)\nКарточки просмотрены: "+Object.keys(seen).length+" из "+W.length+"\nЗадание 2 (буквы): "+r1+" из "+T1.length+(d1<T1.length?" (выполнено "+d1+")":"")+"\nЗадание 3 (диктант): "+r2+" из "+T2.length+(d2<T2.length?" (выполнено "+d2+")":"")+"\nЗадание 4 (предложения): "+r3+" из "+T3.length+(d3<T3.length?" (выполнено "+d3+")":"");
-var o=$("out");o.style.display="block";o.value=t;
-function done(m){$("msg").textContent=m}
-try{navigator.clipboard.writeText(t).then(function(){done("Результаты скопированы! Отправь их учителю в мессенджер.")},function(){o.select();done("Скопируй текст и отправь учителю.")})}catch(e){o.select();done("Скопируй текст и отправь учителю.")}
-};
+/* flashcards */
+let deck=[],ci=0;
+function setCat(c){deck=W.filter(x=>c==='all'||x.g===c);ci=0;document.querySelectorAll('.chips button').forEach(b=>b.classList.toggle('on',b.dataset.c===c));card(false)}
+function card(fl){const c=deck[ci];$('#cd').classList.toggle('flip',!!fl);
+ $('#fw').textContent=c.w;$('#sw').dataset.say=c.w;$('#rb').textContent=c.ru;
+ $('#ex').innerHTML=esc(c.e).replace(c.w,'<b>'+c.w+'</b>');$('#se').dataset.say=c.e;
+ $('#cn').textContent=(ci+1)+' / '+deck.length;
+ const m=S.marks[c.w];$('#mk').textContent=m==='k'?'✓ знаю':m==='r'?'↻ повторить':'не отмечено';
+ $('#ks').textContent=W.filter(x=>S.marks[x.w]==='k').length+' из '+W.length}
+const go=d=>{ci=(ci+d+deck.length)%deck.length;card(false)};
+function mark(v){S.marks[deck[ci].w]=v;save();if(ci<deck.length-1)go(1);else card(false)}
+$('#cd').onclick=e=>{if(!e.target.closest('button'))$('#cd').classList.toggle('flip')};
+$('#fl').onclick=()=>$('#cd').classList.toggle('flip');
+$('#pv').onclick=()=>go(-1);$('#nx').onclick=()=>go(1);
+$('#mk1').onclick=()=>mark('k');$('#mk2').onclick=()=>mark('r');
+document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>setCat(b.dataset.c));
+
+/* tasks */
+const ANS={},ids=[];
+function build(){
+ $('#t2').innerHTML=T2.map((x,i)=>{const id='t2-'+i;ANS[id]=x[0];ids.push(id);
+  return `<div class="item" id="${id}"><div class="q"><span class="n">${i+1}</span>Как пишется: ${x[3]}?</div><div class="opts">${shuf(x.slice(0,3)).map(t=>`<button class="opt">${t}</button>`).join('')}</div><div class="msg"></div></div>`}).join('');
+ $('#t3').innerHTML=T3.map((x,i)=>{const id='t3-'+i;ANS[id]=x[1];ids.push(id);
+  return `<div class="item" id="${id}"><div class="q"><span class="n">${i+1}</span>${x[2]}</div><div class="row"><span class="pat">${x[0]}</span><input autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Ответ ${i+1}"><button data-chk="${id}">Проверить</button></div><div class="msg"></div></div>`}).join('');
+ $('#t4').innerHTML=T4.map((x,i)=>{const id='t4-'+i;ANS[id]=x[0];ids.push(id);
+  return `<div class="item" id="${id}"><div class="q"><span class="n">${i+1}</span>${x[1]}</div><div class="row"><button class="sp" data-say="${x[0]}" aria-label="Послушать">🔊</button><input autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Ответ ${i+1}"><button data-chk="${id}">Проверить</button></div><div class="msg"></div></div>`}).join('');
+ let k=0;const bank=[];
+ $('#t5').innerHTML=esc(T5).replace(/\{(\w+)\|([^}]+)\}/g,(m,a,t)=>{const id='t5-'+(k++);ANS[id]=a;ids.push(id);bank.push(a);
+  return `<span class="gap" id="${id}"><input placeholder="${t}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Пропуск ${k}: ${t}"><button data-chk="${id}">✓</button><span class="msg"></span></span>`}).replace(/\n/g,'<br>');
+ $('#bank').innerHTML=shuf(bank.concat(['Spanish','Greece'])).map(w=>`<span>${w}</span>`).join('');
+ ids.forEach(paint);upd();
+}
+function submit(id,ans,cor){
+ const r=S.res[id]||(S.res[id]={w:[],ok:false,done:false});
+ if(r.done||!ans.trim())return;
+ ans=ans.trim();
+ if(ans===cor){r.ok=true;r.done=true}
+ else{r.w.push(ans);if(r.w.length>=2)r.done=true}
+ save()}
+function paint(id){
+ const el=document.getElementById(id),r=S.res[id],cor=ANS[id];
+ const m=el.querySelector('.msg'),inp=el.querySelector('input'),btn=el.querySelector('[data-chk]');
+ if(!r)return;
+ el.classList.toggle('ok',r.ok);el.classList.toggle('bad',r.done&&!r.ok);
+ el.querySelectorAll('.opt').forEach(b=>{const t=b.textContent,w=r.w.includes(t);
+  b.classList.toggle('bad',w);b.classList.toggle('ok',r.done&&t===cor);b.disabled=r.done||w});
+ if(inp&&r.done){inp.value=cor;inp.disabled=true}
+ if(btn)btn.disabled=r.done;
+ const last=r.w[r.w.length-1];
+ m.textContent=r.ok?(r.w.length?'✓ Верно со 2-й попытки':'✓ Верно'):r.done?'Правильно: '+cor:
+  (inp&&last&&norm(last)===norm(cor))?'Почти! Названия пишутся с заглавной буквы.':
+  inp?`Не совсем. Букв: ${cor.length}, первая — «${cor[0]}».`:'Не то. Попробуй ещё раз.'}
+function upd(){
+ const d=ids.filter(i=>S.res[i]&&S.res[i].done).length,k=ids.filter(i=>S.res[i]&&S.res[i].ok).length;
+ $('#bar').style.width=d/ids.length*100+'%';
+ $('#pt').textContent=`Выполнено заданий: ${d} из ${ids.length}`;
+ $('#score').textContent=k+' / '+ids.length}
+
+document.addEventListener('click',e=>{
+ const s=e.target.closest('[data-say]');if(s){say(s.dataset.say);return}
+ const b=e.target.closest('[data-chk]');
+ if(b){const id=b.dataset.chk,inp=document.getElementById(id).querySelector('input');
+  if(!inp.value.trim())return;
+  submit(id,inp.value,ANS[id]);paint(id);upd();
+  if(!S.res[id].done){inp.value='';inp.focus()}return}
+ const o=e.target.closest('.opt');
+ if(o){const id=o.closest('.item').id;submit(id,o.textContent,ANS[id]);paint(id);upd()}
+});
+document.addEventListener('keydown',e=>{
+ if(e.key==='Enter'&&e.target.matches('input')){const c=e.target.closest('.item,.gap');const b=c&&c.querySelector('[data-chk]');if(b&&!b.disabled)b.click()}
+ else if(!e.target.matches('input,button')){if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)}
+});
+
+/* report */
+function report(){
+ const L=[],k=ids.filter(i=>S.res[i]&&S.res[i].ok).length,rev=[];
+ L.push('Countries, Cities & Nationalities — ОГЭ Spelling','Результат: '+k+'/'+ids.length);
+ const kn=W.filter(x=>S.marks[x.w]==='k').length,rp=W.filter(x=>S.marks[x.w]==='r').map(x=>x.w);
+ L.push(`Карточки: знаю ${kn} из ${W.length}`+(rp.length?'; повторить: '+rp.join(', '):''));
+ [['t2','Задание 2. Выбор правильного написания'],['t3','Задание 3. Пропущенные буквы'],['t4','Задание 4. Послушай и напиши'],['t5','Задание 5. Текст: пропуски по смыслу']].forEach(([p,n])=>{
+  L.push('',n);
+  ids.filter(i=>i.startsWith(p+'-')).forEach((id,j)=>{
+   const r=S.res[id],c=ANS[id],w=r?r.w.map(x=>x+' ✗').join(', '):'';let s;
+   if(!r||(!r.done&&!r.w.length))s='— не выполнено';
+   else if(r.ok)s=r.w.length?`${w} → ${c} ✓ (попыток: 2)`:`${c} ✓ (попыток: 1)`;
+   else if(r.done)s=`${w} (правильно: ${c})`;
+   else s=`${w} — не завершено`;
+   if(!r||!r.ok||r.w.length)rev.push(c);
+   L.push((j+1)+'. '+s)})});
+ const u=[...new Set(rev)];
+ L.push('',u.length?'Что стоит повторить: '+u.join(', '):'Ошибок нет, повторять нечего.');
+ return L.join('\n')}
+async function copyR(){
+ const t=report(),ta=$('#fb');let ok=false;
+ try{await navigator.clipboard.writeText(t);ok=true}catch(e){
+  ta.hidden=false;ta.value=t;ta.focus();ta.select();
+  try{ok=document.execCommand('copy')}catch(e2){}}
+ const m=$('#cm');m.style.color=ok?'var(--green)':'var(--red)';
+ m.textContent=ok?'Результаты скопированы. Теперь отправь их учителю.':'Автокопирование не сработало. Выдели текст ниже, скопируй его вручную и отправь учителю.';
+ if(ok)ta.hidden=true}
+$('#cp').onclick=copyR;
+$('#rs').onclick=()=>{if(confirm('Начать заново? Все ответы и отметки на карточках будут удалены.')){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}};
+
+build();setCat('all');
 </script>
-</body>
-</html>
+</body></html>
