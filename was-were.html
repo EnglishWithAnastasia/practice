@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Was / Were in the city</title>
+<style>
+:root{--bg:#e8ebe9;--ink:#1d2733;--card:#fff;--green:#0e7a53;--blue:#1767b8;--yellow:#ffc933;--red:#d9402f;--line:#c5cbc8;--mut:#5b6670;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b2229;--ink:#eef1f2;--card:#262f38;--line:#3a4650;--mut:#a3adb5}}
+*{box-sizing:border-box}html{scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+h1,h2,.sign{font-family:"Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;font-weight:800;letter-spacing:.01em}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px 40px}
+header{padding:22px 0 12px}
+h1{margin:0;display:inline-block;background:var(--blue);color:#fff;border:3px solid #fff;outline:3px solid var(--blue);border-radius:8px;padding:8px 18px;font-size:clamp(24px,6vw,36px)}
+.sub{margin:14px 0 0;color:var(--mut)}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:8px 0;background:var(--bg);border-bottom:2px dashed var(--line)}
+nav a{flex:none;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:999px;padding:5px 13px;font-weight:700;font-size:14px}
+nav a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+section{margin-top:26px}
+h2{margin:0 0 4px;font-size:24px;display:flex;align-items:center;gap:10px}
+h2 i{font-style:normal;background:var(--yellow);color:#1d2733;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:19px;flex:none}
+.task{color:var(--mut);margin:0 0 12px}
+button{font:inherit;cursor:pointer;border:2px solid var(--ink);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 14px;font-weight:700}
+button:active{transform:translateY(1px)}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tabs button{flex:1;border-color:var(--line)}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tabs button.on.u{background:var(--red);border-color:var(--red);color:#fff}
+.scene{perspective:1100px}
+.card{position:relative;height:250px;transform-style:preserve-3d;transition:transform .45s;cursor:pointer}
+.card.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:5px solid #fff;outline:3px solid var(--g);border-radius:14px;background:var(--g);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;gap:8px}
+.back{transform:rotateY(180deg);background:var(--card);color:var(--ink);border-color:var(--g);outline-color:var(--g)}
+.card.t{--g:var(--green)}.card.q{--g:var(--blue)}
+.tag{font-size:13px;font-weight:700;opacity:.85}
+.big{font-family:"Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;font-weight:800;font-size:clamp(28px,8vw,44px);line-height:1.1}
+.face.front .big.sm{font-size:clamp(22px,6vw,30px)}
+.ru{color:var(--mut)}.ex{font-size:19px;font-weight:700}
+.hint{font-size:13px;opacity:.8}
+.ctrl{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.ctrl2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.know{background:var(--green);border-color:var(--green);color:#fff}.dk{background:var(--red);border-color:var(--red);color:#fff}
+.cnt{text-align:center;color:var(--mut);margin-top:8px;font-weight:700}
+.empty{background:var(--card);border:3px dashed var(--line);border-radius:14px;padding:34px 16px;text-align:center;color:var(--mut)}
+.item{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.item.ok{border-color:var(--green)}.item.bad{border-color:var(--red)}
+.q{font-size:18px;font-weight:600;margin-bottom:8px}
+.blank{display:inline-block;min-width:54px;border-bottom:3px solid var(--ink);text-align:center;color:var(--green);font-weight:800}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{min-width:76px}
+.opts button.w{background:var(--red);border-color:var(--red);color:#fff}
+.opts button.r{background:var(--green);border-color:var(--green);color:#fff}
+.fb{margin-top:8px;font-size:14px;min-height:0}
+.score{font-weight:800;margin:4px 0 0}
+textarea{width:100%;min-height:68px;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:9px;resize:vertical}
+.done{background:var(--card);border:3px solid var(--ink);border-radius:14px;padding:16px}
+.big-btn{width:100%;margin-top:10px;background:var(--yellow);border-color:var(--ink);color:#1d2733;font-size:18px;padding:13px}
+.msg{margin-top:10px;font-weight:700;color:var(--green)}
+#fall{display:none;width:100%;margin-top:10px;min-height:150px;font-size:13px}
+.reset{margin-top:14px;background:none;border-color:var(--line);color:var(--mut);font-weight:500;font-size:14px}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
+</style></head>
+<body><div class="wrap">
+<header><h1>Was / Were in the city</h1><p class="sub">Домашнее задание: вопросы с was / were, места в городе и time expressions. Проходи по порядку — сверху вниз.</p></header>
+<nav><a href="#s1">1 Карточки</a><a href="#s2">2 Was / Were</a><a href="#s3">3 Time</a><a href="#s4">4 Ответы</a><a href="#s5">Учителю</a></nav>
+
+<section id="s1"><h2><i>1</i>Карточки</h2>
+<p class="task">Нажми на карточку, чтобы перевернуть. 🔊 — послушай. Не помнишь — жми «Не знаю», карточка попадёт во вкладку для повторения.</p>
+<div class="tabs"><button id="tAll" class="on">Все</button><button id="tUnk" class="u">Не знаю</button></div>
+<div id="deck"><div class="scene"><div class="card" id="card"><div class="face front"><span class="tag" id="ftag"></span><div class="big" id="ff"></div><span class="hint">нажми, чтобы перевернуть</span></div><div class="face back"><div class="ru" id="bru"></div><div class="ex" id="bex"></div><div class="ru" id="bexru"></div></div></div></div>
+<div class="ctrl"><button id="prev" aria-label="Назад">←</button><button id="say" aria-label="Озвучить">🔊</button><button id="fl">Перевернуть</button><button id="next" aria-label="Вперёд">→</button></div>
+<div class="ctrl2"><button class="know" id="kn">✓ Знаю</button><button class="dk" id="dk">? Не знаю</button></div>
+<div class="cnt" id="cnt"></div></div>
+<div class="empty" id="emp" style="display:none"></div>
+</section>
+
+<section id="s2"><h2><i>2</i>Was или were?</h2>
+<p class="task">Выбери слово. I / he / she / it → <b>was</b>. You / we / they → <b>were</b>.</p>
+<div id="q1"></div><p class="score" id="sc1"></p></section>
+
+<section id="s3"><h2><i>3</i>Time expressions</h2>
+<p class="task">Выбери слово: <b>last</b>, <b>in</b>, <b>ago</b> или <b>yesterday</b>.</p>
+<div id="q2"></div><p class="score" id="sc2"></p></section>
+
+<section id="s4"><h2><i>4</i>Ответь полностью</h2>
+<p class="task">Ответь полным предложением. Например: <b>Yes, I was. I was at the bank.</b> или <b>No, I wasn’t. I was at home.</b></p>
+<div id="q3"></div></section>
+
+<section id="s5"><h2><i>✓</i>Готово</h2>
+<div class="done"><div id="sum"></div>
+<button class="big-btn" id="copy">Скопировать учителю</button>
+<div class="msg" id="msg"></div><textarea id="fall" readonly></textarea></div>
+<button class="reset" id="reset">Начать заново</button></section>
+</div>
+<script>
+var K="wwcity1",$=function(s){return document.querySelector(s)};
+var S={};try{S=JSON.parse(localStorage.getItem(K))||{}}catch(e){}
+S.unk=S.unk||[];S.known=S.known||[];S.t=S.t||{};S.o=S.o||{};
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+function say(t){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.85;var v=speechSynthesis.getVoices().filter(function(v){return v.lang&&v.lang.indexOf("en")==0})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+/* cards: front, ru, example, ex ru, type */
+var C=[
+["yesterday","вчера","I was at the bank yesterday.","Я был в банке вчера.","t"],
+["last night","вчера вечером / прошлой ночью","Were you at the cafe last night?","Ты был в кафе вчера вечером?","t"],
+["last week","на прошлой неделе","We were at the funfair last week.","Мы были в парке аттракционов на прошлой неделе.","t"],
+["last month","в прошлом месяце","I was at the library last month.","Я был в библиотеке в прошлом месяце.","t"],
+["last year","в прошлом году","She was at the sports centre last year.","Она была в спортивном центре в прошлом году.","t"],
+["last Monday","в прошлый понедельник","They were at the supermarket last Monday.","Они были в супермаркете в прошлый понедельник.","t"],
+["in 2025","в 2025 году","He was at the tower in 2025.","Он был у башни в 2025 году.","t"],
+["in October","в октябре","We were at the cafe in October.","Мы были в кафе в октябре.","t"],
+["2 days ago","2 дня назад","I was at the market 2 days ago.","Я был на рынке 2 дня назад.","t"],
+["5 months ago","5 месяцев назад","She was at the bank 5 months ago.","Она была в банке 5 месяцев назад.","t"],
+["a week ago","неделю назад","They were at the car park a week ago.","Они были на парковке неделю назад.","t"],
+["Were you at the bank yesterday?","Ты был(а) в банке вчера?","Yes, I was. / No, I wasn’t.","Да, был(а). / Нет, не был(а).","q"],
+["Was he at the library last week?","Он был в библиотеке на прошлой неделе?","Yes, he was. / No, he wasn’t.","Да, был. / Нет, не был.","q"],
+["Was she at the cafe 2 days ago?","Она была в кафе 2 дня назад?","Yes, she was. / No, she wasn’t.","Да, была. / Нет, не была.","q"],
+["Were they at the funfair last Monday?","Они были в парке аттракционов в прошлый понедельник?","Yes, they were. / No, they weren’t.","Да, были. / Нет, не были.","q"],
+["Were you at the supermarket last night?","Ты был(а) в супермаркете вчера вечером?","Yes, I was. / No, I wasn’t.","Да, был(а). / Нет, не был(а).","q"],
+["Was your mum at the sports centre in 2025?","Твоя мама была в спортивном центре в 2025 году?","Yes, she was. / No, she wasn’t.","Да, была. / Нет, не была.","q"]];
+var tab="all",pos=0,flipped=false;
+function list(){return tab=="all"?C.map(function(_,i){return i}):S.unk}
+function setFlip(f){flipped=f;$("#card").classList.toggle("flip",f)}
+function drawCard(){
+ $("#tAll").textContent="Все ("+C.length+")";$("#tUnk").textContent="Не знаю ("+S.unk.length+")";
+ $("#tAll").classList.toggle("on",tab=="all");$("#tUnk").classList.toggle("on",tab=="unk");
+ var L=list();if(pos>=L.length)pos=0;
+ var has=L.length>0;$("#deck").style.display=has?"":"none";$("#emp").style.display=has?"none":"";
+ if(!has){$("#emp").textContent=tab=="unk"?"Здесь пока пусто. Карточки, которые ты не знаешь, появятся здесь.":"Нет карточек.";return}
+ var c=C[L[pos]];$("#card").className="card "+c[4]+(flipped?" flip":"");
+ $("#ftag").textContent=c[4]=="t"?"Time expression":"Question";
+ var f=$("#ff");f.textContent=c[0];f.className="big"+(c[4]=="q"?" sm":"");
+ $("#bru").textContent=c[1];$("#bex").textContent=c[2];$("#bexru").textContent=c[3];
+ $("#cnt").textContent=(pos+1)+" / "+L.length;
+}
+function go(d){var n=list().length;if(!n)return;setFlip(false);pos=(pos+d+n)%n;drawCard()}
+$("#tAll").onclick=function(){tab="all";pos=0;setFlip(false);drawCard()};
+$("#tUnk").onclick=function(){tab="unk";pos=0;setFlip(false);drawCard()};
+$("#card").onclick=function(){setFlip(!flipped)};
+$("#fl").onclick=function(){setFlip(!flipped)};
+$("#prev").onclick=function(){go(-1)};$("#next").onclick=function(){go(1)};
+$("#say").onclick=function(){var c=C[list()[pos]];say(flipped?c[2].replace(" / "," "):c[0])};
+function rm(a,i){var k=a.indexOf(i);if(k>-1)a.splice(k,1)}
+$("#kn").onclick=function(){var i=list()[pos];rm(S.unk,i);if(S.known.indexOf(i)<0)S.known.push(i);save();setFlip(false);if(tab=="all")pos=(pos+1)%C.length;drawCard()};
+$("#dk").onclick=function(){var i=list()[pos];rm(S.known,i);if(S.unk.indexOf(i)<0)S.unk.push(i);save();setFlip(false);if(tab=="all")pos=(pos+1)%C.length;else pos=(pos+1)%S.unk.length;drawCard()};
+/* quizzes */
+var T1=[["___ you at the library yesterday?","Were"],["___ she at the bank last week?","Was"],["___ they at the funfair last Monday?","Were"],["___ he at the car park 2 days ago?","Was"],["___ your mum at the supermarket last night?","Was"],["___ your friends at the sports centre last month?","Were"],["___ Anna and Tom at the market yesterday?","Were"],["___ your dad at the bus stop a week ago?","Was"]];
+var T2=[["I was at the cafe ___ week.","last"],["We were at the funfair 2 days ___.","ago"],["She was at the library ___ 2025.","in"],["They were at the bank ___ Monday.","last"],["He was at the sports centre ___.","yesterday"],["I was at the market 5 months ___.","ago"],["Were you at the cafe ___ October?","in"],["Was he at the supermarket ___ night?","last"]];
+var Q={q1:{k:"t1",d:T1,o:["Was","Were"],h:"Подсказка: I / he / she / it → was. You / we / they → were. Anna and Tom = they."},
+ q2:{k:"t2",d:T2,o:["last","in","ago","yesterday"],h:"Подсказка: last + week / night / Monday; in + год или месяц; число + время + ago."}};
+function st(k,i){S.t[k]=S.t[k]||{};return S.t[k][i]=S.t[k][i]||{a:[],ok:false,done:false}}
+function filled(d,v){return d[0].replace("___",v)}
+function drawQuiz(id){var q=Q[id],h="";
+ q.d.forEach(function(d,i){var s=st(q.k,i),parts=d[0].split("___");
+  var b=s.done?'<span class="blank">'+d[1]+'</span>':'<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;</span>';
+  var o=q.o.map(function(x){var c="";if(s.a.indexOf(x)>-1)c=x==d[1]?"r":"w";if(s.done&&x==d[1])c="r";
+   return '<button class="'+c+'" '+(s.done?"disabled":"")+' data-q="'+id+'" data-i="'+i+'" data-v="'+x+'">'+x+'</button>'}).join("");
+  var fb="";if(s.done&&s.ok)fb="✓ Верно!";else if(s.done)fb="Правильный ответ: "+d[1]+". "+q.h.replace("Подсказка: ","");else if(s.a.length)fb="Не совсем. "+q.h;
+  h+='<div class="item '+(s.done?(s.ok?"ok":"bad"):"")+'"><div class="q">'+parts[0]+b+parts[1]+'</div><div class="opts">'+o+'</div><div class="fb">'+fb+'</div></div>'});
+ $("#"+id).innerHTML=h;
+ var n=q.d.filter(function(d,i){var s=st(q.k,i);return s.ok&&s.a.length==1}).length,dn=q.d.filter(function(d,i){return st(q.k,i).done}).length;
+ $("#sc"+id.slice(1)).textContent=dn==q.d.length?"Верно с первого раза: "+n+" из "+q.d.length:"Выполнено: "+dn+" из "+q.d.length;
+}
+document.addEventListener("click",function(e){var b=e.target.closest("button[data-q]");if(!b)return;
+ var q=Q[b.dataset.q],i=+b.dataset.i,v=b.dataset.v,s=st(q.k,i);if(s.done)return;
+ s.a.push(v);if(v==q.d[i][1]){s.ok=true;s.done=true}else if(s.a.length>=2){s.done=true}
+ save();drawQuiz(b.dataset.q);sum()});
+/* open questions */
+var T3=["Were you at the supermarket yesterday?","Were you at the cafe last week?","Was your mum at the bank 2 days ago?","Were your friends at the funfair last month?","Were you at the library in October?","Where were you last night?"];
+function drawOpen(){$("#q3").innerHTML=T3.map(function(t,i){return '<div class="item"><div class="q">'+(i+1)+'. '+t+' <button data-say="'+i+'" aria-label="Озвучить" style="padding:2px 8px">🔊</button></div><textarea data-o="'+i+'" placeholder="Напиши полный ответ…">'+(S.o[i]||"").replace(/</g,"&lt;")+'</textarea></div>'}).join("")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b)say(T3[+b.dataset.say])});
+document.addEventListener("input",function(e){var t=e.target;if(t.dataset&&t.dataset.o!==undefined){S.o[t.dataset.o]=t.value;save();sum()}});
+/* report */
+function sc(id){var q=Q[id];return q.d.filter(function(d,i){var s=st(q.k,i);return s.ok&&s.a.length==1}).length}
+function nOpen(){return T3.filter(function(t,i){return (S.o[i]||"").trim().length>2}).length}
+function sum(){$("#sum").innerHTML="<b>Карточки:</b> знаю "+S.known.length+", повторить "+S.unk.length+"<br><b>Was / were:</b> "+sc("q1")+" из "+T1.length+" с первой попытки<br><b>Time expressions:</b> "+sc("q2")+" из "+T2.length+"<br><b>Свои ответы:</b> "+nOpen()+" из "+T3.length}
+function report(){
+ var L=["Was / Were in the city","Результат: "+(sc("q1")+sc("q2"))+"/"+(T1.length+T2.length)+" (с первой попытки)","",
+ "Карточки: знаю "+S.known.length+" из "+C.length+(S.unk.length?"\nНа повторение: "+S.unk.map(function(i){return C[i][0]}).join("; "):"")];
+ [["q1","Задание 2: was / were"],["q2","Задание 3: time expressions"]].forEach(function(p){var q=Q[p[0]];L.push("","Задание "+p[1].slice(8));
+  q.d.forEach(function(d,i){var s=st(q.k,i);if(!s.a.length){L.push((i+1)+". "+filled(d,"___")+" — не выполнено");return}
+   L.push((i+1)+". "+filled(d,d[1])+" — "+s.a.map(function(a){return a+(a==d[1]?" ✓":" ✗")}).join(" → ")+(s.ok?"":" (не решил)")+(s.a.length>1?" | попыток: "+s.a.length:""))})});
+ L.push("","Задание 4: ответы ученика");
+ T3.forEach(function(t,i){L.push((i+1)+". "+t,"Ответ: "+((S.o[i]||"").trim()||"— нет ответа —"))});
+ var bad=[];[["q1",T1],["q2",T2]].forEach(function(p){p[1].forEach(function(d,i){var s=st(Q[p[0]].k,i);if(s.a.length>1||(s.a.length&&!s.ok))bad.push(filled(d,d[1]))})});
+ if(bad.length)L.push("","Что стоит повторить:",bad.join("\n"));
+ return L.join("\n")}
+$("#copy").onclick=function(){var t=report(),m=$("#msg"),f=$("#fall");
+ function ok(){m.textContent="Результаты скопированы. Теперь отправь их учителю.";f.style.display="none"}
+ function fb(){f.value=t;f.style.display="block";f.focus();f.select();try{if(document.execCommand("copy")){ok();return}}catch(e){}m.textContent="Выдели весь текст ниже, скопируй его и отправь учителю."}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fb);else fb()};
+$("#reset").onclick=function(){if(confirm("Начать заново? Все ответы будут удалены.")){S={unk:[],known:[],t:{},o:{}};save();location.reload()}};
+drawCard();drawQuiz("q1");drawQuiz("q2");drawOpen();sum();
+</script></body></html>
