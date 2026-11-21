@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Telling the time — Homework</title>
+<style>
+:root{--bg:#dbeafe;--card:#fff;--ink:#12305c;--mut:#5b6f8f;--acc:#ffd23f;--pri:#2563eb;--ok:#16a34a;--bad:#e11d48;--led:#b8ff5c;--panel:#0f1f3d;--line:#c3d6f5;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1630;--card:#14264a;--ink:#eaf1ff;--mut:#9db2d6;--line:#2b4274;--panel:#050c1c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1630;--card:#14264a;--ink:#eaf1ff;--mut:#9db2d6;--line:#2b4274;--panel:#050c1c;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px 40px}
+.led{font-family:ui-monospace,"Courier New",monospace;background:var(--panel);color:var(--led);text-shadow:0 0 8px var(--led);border-radius:10px;padding:2px 12px;font-weight:700;letter-spacing:.06em;display:inline-block}
+header{text-align:center;padding:22px 0 8px}
+header .led{font-size:44px}
+h1{margin:6px 0 2px;font-size:26px}
+header p{margin:0;color:var(--mut)}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;font-size:14px;color:var(--mut)}
+.bar div{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:4px}
+.bar i{display:block;height:100%;width:0;background:var(--pri);transition:width .3s}
+section{background:var(--card);border-radius:16px;padding:16px;margin:14px 0;box-shadow:0 2px 10px rgba(18,48,92,.1)}
+h2{margin:0 0 4px;font-size:20px;display:flex;gap:10px;align-items:center}
+h2 b{background:var(--acc);color:#12305c;border-radius:50%;width:30px;height:30px;display:grid;place-items:center;font-size:16px;flex:none}
+.ins{color:var(--mut);margin:0 0 12px;font-size:15px}
+.rules{background:#fff8d6;color:#12305c;border-left:5px solid var(--acc);border-radius:8px;padding:10px 12px;font-size:15px;margin-bottom:12px}
+.rules p{margin:2px 0}
+.tabs{display:flex;gap:8px;margin-bottom:10px}
+button{font:inherit;cursor:pointer;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px}
+button:hover:not(:disabled){border-color:var(--pri)}
+button.on,.pri{background:var(--pri);border-color:var(--pri);color:#fff}
+button:disabled{cursor:default;opacity:.8}
+.scene{perspective:900px}
+.card{position:relative;height:210px;cursor:pointer;transition:transform .5s;transform-style:preserve-3d}
+.card.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid var(--line);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:12px;background:var(--card)}
+.back{transform:rotateY(180deg);background:#eaf2ff;color:#12305c}
+.face .big{font-size:26px;font-weight:700}
+.face small{color:var(--mut)}
+.back small{color:#3c5683}
+.ctl{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+.q{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:18px}
+.item{padding:12px 0;border-top:1px solid var(--line)}
+.item:first-of-type{border-top:0}
+.n{color:var(--mut);font-weight:700;min-width:22px}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.opts button{font-size:17px;padding:8px 12px}
+.opts .bad{background:#ffe4e9;border-color:var(--bad);color:#9f1239;text-decoration:line-through}
+.opts .good{background:#dcfce7;border-color:var(--ok);color:#14532d}
+input[type=text],textarea{font:inherit;font-size:17px;padding:8px 10px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);min-width:0}
+input[type=text]{width:210px;max-width:100%}
+textarea{width:100%;min-height:110px}
+input.good{border-color:var(--ok);background:#dcfce7;color:#14532d}
+.fb{margin-top:6px;font-size:15px;min-height:1px}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--bad)}.fb.rv{color:var(--mut)}
+.res{text-align:center}
+.res .led{font-size:34px;margin:6px 0}
+.res textarea{margin-top:10px;display:none;min-height:160px;font-size:14px}
+.msg{margin-top:10px;font-weight:600;color:var(--ok)}
+.res .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.pri{padding:12px 22px;font-size:17px;font-weight:700}
+</style></head>
+<body><div class="wrap">
+<header><div class="led" id="hl">12:30</div><h1>Telling the time</h1><p>Домашнее задание · English A1</p></header>
+<div class="bar"><span id="pt">Выполнено: 0 из 0</span><div><i id="pb"></i></div></div>
+
+<section id="cards">
+<h2>Cards</h2>
+<p class="ins">Сначала выучи карточки. Нажми на карточку, чтобы перевернуть её. Кнопка «▶ Listen» — послушать, как это звучит. Прослушай каждую карточку и повтори вслух.</p>
+<div class="rules"><p><b>Правила:</b></p>
+<p>• Минуты от 1 до 30 → <b>past</b> (после): 7:10 = ten past seven</p>
+<p>• Минуты от 31 до 59 → <b>to</b> (до следующего часа): 7:50 = ten to eight</p>
+<p>• 15 min = <b>quarter</b> · 30 min = <b>half</b> · ровно час = <b>o’clock</b></p>
+<p>• Перед временем: <b>at</b> — I get up <b>at</b> seven o’clock.</p></div>
+<div class="tabs"><button id="t0" class="on">Time</button><button id="t1">Daily routine</button></div>
+<div class="scene"><div class="card" id="card"><div class="face" id="ff"></div><div class="face back" id="fb"></div></div></div>
+<div class="ctl"><button id="pv">← Back</button><button id="sp">▶ Listen</button><span id="cn" style="color:var(--mut)"></span><button id="nx">Next →</button></div>
+</section>
+
+<div id="tasks"></div>
+
+<section class="res" id="res">
+<h2 style="justify-content:center">Result</h2>
+<div class="led" id="sc">0/0</div>
+<p class="ins" id="rt"></p>
+<div class="row"><button class="pri" id="cp">Скопировать учителю</button><button id="rs">Начать заново</button></div>
+<div class="msg" id="ms"></div>
+<textarea id="ta" readonly></textarea>
+</section>
+</div>
+
+<script>
+const H=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+const M={5:'five',10:'ten',20:'twenty',25:'twenty-five'};
+const nx=h=>h%12+1;
+const W=(h,m)=>m==0?H[h]+" o'clock":m==30?'half past '+H[h]:m==15?'quarter past '+H[h]:m==45?'quarter to '+H[nx(h)]:m<30?M[m]+' past '+H[h]:M[60-m]+' to '+H[nx(h)];
+const D=(h,m)=>h+':'+String(m).padStart(2,'0');
+const K='telling_time_hw_v1';
+let S={};try{S=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-GB';u.rate=.85;const v=speechSynthesis.getVoices();const f=v.find(x=>x.lang.replace('_','-')=='en-GB')||v.find(x=>x.lang.startsWith('en'));if(f)u.voice=f;speechSynthesis.speak(u)}catch(e){}}
+
+/* ---------- Flashcards ---------- */
+const P=[['get up','get up'],['get dressed','get dressed'],['have breakfast','have breakfast'],['brush your teeth','brush my teeth'],['go to school','go to school'],['have lunch','have lunch'],['play in the park','play in the park'],['have dinner','have dinner'],['go to bed','go to bed'],['do homework','do my homework'],['read a book','read a book'],['wash up','wash up'],['take the dog for a walk','take the dog for a walk']];
+const PT=[[7,0],[7,10],[7,30],[7,45],[8,15],[12,30],[4,0],[6,30],[9,0],[5,15],[8,30],[6,45],[4,45]];
+const note=m=>m==0?"ровно час → o’clock":m==15?'15 min = quarter (past)':m==45?'15 min = quarter (to)':m==30?'30 min = half':m<30?'до 30 минут → past':'после 30 минут → to + следующий час';
+const decks=[
+ [[7,0],[7,5],[7,10],[7,15],[7,20],[7,25],[7,30],[7,35],[7,40],[7,45],[7,50],[7,55]].map(([h,m])=>({f:'<div class="led big" style="font-size:48px">'+D(h,m)+'</div><small>Say it!</small>',b:'<div class="big">'+W(h,m)+'</div><small>'+note(m)+'</small>',s:W(h,m)})),
+ P.map((p,i)=>({f:'<div class="big">'+p[0]+'</div><div class="led" style="font-size:26px">'+D(...PT[i])+'</div>',b:'<div class="big">I '+p[1]+' at '+W(...PT[i])+'.</div>',s:'I '+p[1]+' at '+W(...PT[i])}))
+];
+let dk=0,ci=0,fl=false;
+function showCard(){const c=decks[dk][ci];document.getElementById('ff').innerHTML=c.f;document.getElementById('fb').innerHTML=c.b;document.getElementById('card').classList.toggle('flip',fl);document.getElementById('cn').textContent=(ci+1)+' / '+decks[dk].length}
+const $=id=>document.getElementById(id);
+$('card').onclick=()=>{fl=!fl;$('card').classList.toggle('flip',fl);if(fl)speak(decks[dk][ci].s)};
+$('sp').onclick=()=>speak(decks[dk][ci].s);
+$('nx').onclick=()=>{ci=(ci+1)%decks[dk].length;fl=false;showCard()};
+$('pv').onclick=()=>{ci=(ci+decks[dk].length-1)%decks[dk].length;fl=false;showCard()};
+[0,1].forEach(k=>$('t'+k).onclick=()=>{dk=k;ci=0;fl=false;$('t0').className=k?'':'on';$('t1').className=k?'on':'';showCard()});
+showCard();
+
+/* ---------- Tasks ---------- */
+const tasks=[
+ {t:'Listen and choose',r:'Нажми «▶ Listen» и послушай. Выбери время, которое ты услышала.'},
+ {t:'Choose the words',r:'Посмотри на время и выбери правильный вариант.'},
+ {t:'Write the time',r:'Напиши время цифрами, например: 8:05.'},
+ {t:'About you',r:'Допиши предложения о себе. Напиши своё время словами. Например: I get up at seven o’clock.'}
+];
+const items=[];
+const add=o=>{o.id=items.length;items.push(o)};
+const hintM=m=>m==0?"Ровно час — o’clock.":m==15?'15 минут = quarter. past — после часа, to — до часа.':m==30?'30 минут = half past.':m==45?'quarter to + СЛЕДУЮЩИЙ час.':m<30?'Минуты до 30 → past + этот же час.':'Минуты после 30 → to + СЛЕДУЮЩИЙ час.';
+const rot=(o,i)=>o.slice(i%3).concat(o.slice(0,i%3));
+[[9,15,['9:15','9:45','10:15']],[6,45,['6:45','7:45','6:15']],[11,25,['11:25','11:35','12:25']],[2,50,['2:50','2:10','3:50']],[1,40,['1:40','1:20','2:40']]].forEach(([h,m,o],i)=>add({task:0,type:'c',say:W(h,m),opts:rot(o,i),ans:[D(h,m)],plain:'(audio) '+W(h,m),hint:hintM(m)}));
+[[3,30],[6,15],[9,45],[4,10],[11,25]].forEach(([h,m],i)=>{const c=[W(h,(60-m)%60),W(nx(h),m),W(h,m<30?m+30:m-30)],w=W(h,m),d=[];c.forEach(x=>{if(x!=w&&!d.includes(x))d.push(x)});add({task:1,type:'c',led:D(h,m),opts:rot([w,d[0],d[1]],i+1),ans:[w],plain:D(h,m),hint:hintM(m)})});
+[[8,5],[12,30],[6,45],[10,15],[1,20],[4,55]].forEach(([h,m])=>add({task:2,type:'t',tm:1,q:'<b>'+W(h,m)+'</b> =',ans:[D(h,m)],plain:W(h,m),hint:'Минуты: '+(m==0?'0':m)+'. Часы — число, которое слышишь. Если есть «to», час на 1 меньше.'}));
+const OP=['I get up at','I have breakfast at','I go to school at','I have lunch at','I do my homework at','I go to bed at'];
+const N=items.length;
+const norm=(s,tm)=>{s=s.toLowerCase().trim();if(tm)return s.replace(/\./g,':').replace(/\s/g,'').replace(/^0(\d)/,'$1');return s.replace(/[’']/g,'').replace(/-/g,' ').replace(/[.!]$/,'').replace(/\s+/g,' ')};
+const st=id=>S[id]||(S[id]={a:[],done:false,ok:false});
+function view(it){
+ const s=st(it.id),e=$('i'+it.id),mx=it.type=='c'?2:3;
+ let h='<div class="q"><span class="n">'+(it.local)+'.</span>';
+ if(it.say)h+='<button onclick="speak(items['+it.id+'].say)">▶ Listen</button>';
+ if(it.led)h+='<span class="led" style="font-size:26px">'+it.led+'</span>';
+ if(it.q)h+=it.q;
+ if(it.pre)h+='<span>'+it.pre+'</span>';
+ if(it.type=='t'){h+='<input type="text" id="x'+it.id+'" autocomplete="off" autocapitalize="off" spellcheck="false" '+(s.done?'disabled value="'+(s.a[s.a.length-1]||'').replace(/"/g,'&quot;')+'"':'')+(s.ok?' class="good"':'')+'>';if(!s.done)h+='<button class="pri" onclick="chk('+it.id+')">Check</button>'}
+ h+='</div>';
+ if(it.type=='c'){h+='<div class="opts">'+it.opts.map((o,k)=>'<button class="'+(it.ans.includes(o)&&s.ok?'good':s.a.includes(o)?'bad':'')+'" '+(s.done||s.a.includes(o)?'disabled':'')+' onclick="pick('+it.id+','+k+')">'+o+'</button>').join('')+'</div>'}
+ let f='',c='';
+ if(s.ok){c='ok';f='✓ Right!'+(s.a.length>1?' (попытка '+s.a.length+')':'')}
+ else if(s.done){c='rv';f='Правильный ответ: <b>'+it.ans[0]+'</b>'}
+ else if(s.a.length){c='no';f='✗ Попробуй ещё раз. '+it.hint}
+ h+='<div class="fb '+c+'">'+f+'</div>';
+ e.innerHTML=h;
+ const x=$('x'+it.id);if(x&&!s.done)x.onkeydown=ev=>{if(ev.key=='Enter')chk(it.id)};
+}
+function fin(it,v){const s=st(it.id),mx=it.type=='c'?2:3;s.a.push(v);const ok=it.ans.some(a=>norm(a,it.tm)==norm(v,it.tm));if(ok){s.done=s.ok=true}else if(s.a.length>=mx)s.done=true;save();view(it);upd();const x=$('x'+it.id);if(x&&!s.done)x.focus()}
+function pick(id,k){const it=items[id];if(st(id).done)return;fin(it,it.opts[k])}
+function chk(id){const it=items[id],v=$('x'+id).value.trim();if(!v||st(id).done)return;fin(it,v)}
+const box=$('tasks');
+tasks.forEach((t,i)=>{
+ const sec=document.createElement('section');
+ sec.innerHTML='<h2><b>'+(i+1)+'</b>'+t.t+'</h2><p class="ins">'+t.r+'</p>';
+ if(i==3){OP.forEach((p,k)=>sec.insertAdjacentHTML('beforeend','<div class="item"><div class="q"><span class="n">'+(k+1)+'.</span><span>'+p+'</span><input type="text" id="o'+k+'" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="..."></div></div>'))}
+ else{let n=0;items.filter(x=>x.task==i).forEach(it=>{it.local=++n;const d=document.createElement('div');d.className='item';d.id='i'+it.id;sec.appendChild(d)})}
+ box.appendChild(sec);
+});
+items.forEach(view);
+S.o=S.o||[];OP.forEach((p,k)=>{const x=$('o'+k);x.value=S.o[k]||'';x.oninput=()=>{S.o[k]=x.value;save()}});
+
+function sc(){return items.filter(i=>st(i.id).ok).length}
+function upd(){
+ const d=items.filter(i=>st(i.id).done).length;
+ $('pt').textContent='Выполнено: '+d+' из '+N;$('pb').style.width=(d/N*100)+'%';
+ $('sc').textContent=sc()+'/'+N;
+ $('rt').textContent=d<N?'Выполни все задания, потом нажми кнопку ниже.':'Готово! Нажми кнопку и отправь результат учителю.';
+}
+function report(){
+ let r='Telling the time — домашнее задание\nРезультат: '+sc()+'/'+N+'\n';
+ const bad=[];
+ tasks.forEach((t,i)=>{
+  r+='\nЗадание '+(i+1)+': '+t.t+'\n';
+  if(i==3){OP.forEach((p,k)=>{const v=((S.o||[])[k]||'').trim();r+=p+' '+(v||'—')+'\n'});return}
+  items.filter(x=>x.task==i).forEach(it=>{
+   const s=st(it.id);r+=it.local+') '+it.plain+'\n';
+   if(!s.a.length){r+='   не выполнено\n';bad.push(it.plain+' → '+it.ans[0]);return}
+   r+='   Ответ: '+s.a.map((a,k)=>a+(k==s.a.length-1&&s.ok?' ✓':' ✗')).join(' → ')+'\n   Попыток: '+s.a.length+'\n';
+   if(!s.ok){r+='   Правильно: '+it.ans[0]+'\n';bad.push(it.plain+' → '+it.ans[0])}
+   else if(s.a.length>1)bad.push(it.plain+' (исправила сама, попыток: '+s.a.length+')');
+  });
+ });
+ if(bad.length)r+='\nЧто стоит повторить:\n'+bad.map(b=>'• '+b).join('\n')+'\n';
+ return r.trim();
+}
+$('cp').onclick=async()=>{
+ const t=report(),ta=$('ta');ta.value=t;
+ try{await navigator.clipboard.writeText(t);$('ms').textContent='Результаты скопированы. Теперь отправь их учителю.';ta.style.display='none'}
+ catch(e){ta.style.display='block';ta.focus();ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(x){}
+  $('ms').textContent=ok?'Результаты скопированы. Теперь отправь их учителю.':'Скопируй текст ниже вручную (выдели всё и нажми «Копировать») и отправь учителю.'}
+};
+$('rs').onclick=()=>{if(confirm('Начать заново? Все ответы будут удалены.')){try{localStorage.removeItem(K)}catch(e){}location.reload()}};
+upd();
+</script>
+</body></html>
