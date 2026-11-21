@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Progress Check · Wider World 4</title>
+<style>
+:root{--bg:#0f0b1f;--card:#1a1433;--ink:#f4f1ff;--mut:#a79fc9;--acc:#ff3d81;--lime:#b6ff3b;--ok:#3ddc97;--bad:#ff5c6c;--line:#2e2554;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(15,11,31,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:8px 14px}
+.top div{max-width:760px;margin:auto;display:flex;justify-content:space-between;font-size:14px;color:var(--mut)}
+.bar{height:6px;background:var(--line);border-radius:9px;max-width:760px;margin:6px auto 0;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--lime));transition:width .3s}
+main{max-width:760px;margin:auto;padding:18px 14px 60px}
+h1{font-size:clamp(26px,6vw,38px);line-height:1.1;margin:8px 0}h1 span{color:var(--acc)}
+.lead{color:var(--mut);margin:0 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}
+.card h2{font-size:19px;margin:0 0 4px}.num{display:inline-block;background:var(--acc);color:#fff;border-radius:8px;padding:0 9px;margin-right:6px}
+.ins{color:var(--mut);margin:0 0 10px}
+details{background:#241c47;border-radius:12px;padding:8px 12px;margin:8px 0}summary{cursor:pointer;font-weight:600;color:var(--lime)}
+details ul{margin:8px 0 4px;padding-left:20px}li{margin:3px 0}code,.en{color:#ffd166}
+.q{padding:10px 0;border-top:1px dashed var(--line)}.s{margin-bottom:6px}.s b{color:var(--acc);margin-right:6px}
+.kw{background:var(--lime);color:#111;border-radius:6px;padding:0 6px;font-weight:700;font-size:13px;margin-left:4px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}.chip input{position:absolute;opacity:0}
+.chip span{display:inline-block;border:2px solid var(--line);border-radius:10px;padding:6px 12px;cursor:pointer;background:#241c47}
+.chip input:checked+span{border-color:var(--acc);background:#3a1f55}.chip input:focus-visible+span{outline:2px solid var(--lime)}
+.gap,select{font:inherit;color:var(--ink);background:#241c47;border:2px solid var(--line);border-radius:8px;padding:3px 8px;max-width:100%}
+.gap{width:150px}.gap.l{width:200px}select{width:auto}
+.gap:focus,select:focus{outline:none;border-color:var(--acc)}
+.ok{border-color:var(--ok)!important;background:#12392e!important}.bad{border-color:var(--bad)!important}
+.fb{font-size:14px;color:var(--mut);margin-top:4px}.fb.r{color:var(--bad)}.fb.g{color:var(--ok)}
+.text{line-height:2.2}.dlg p{margin:6px 0}.dlg b{color:var(--acc)}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:10px 18px;cursor:pointer;background:var(--acc);color:#fff;margin-top:12px}
+button.alt{background:transparent;border:2px solid var(--line);color:var(--ink)}button:active{transform:scale(.98)}
+.msg{display:inline-block;margin-left:10px;color:var(--lime);font-size:14px}
+textarea{width:100%;min-height:200px;font:inherit;color:var(--ink);background:#241c47;border:2px solid var(--line);border-radius:12px;padding:10px;resize:vertical}
+textarea:focus{outline:none;border-color:var(--acc)}.cnt{font-size:13px;color:var(--mut)}
+.big{font-size:44px;font-weight:800;color:var(--lime)}
+</style></head><body>
+<div class="top"><div><span>Progress Check · Units 1–9</span><span id="sc">Верно: 0/0</span></div><div class="bar"><i id="pb"></i></div></div>
+<main>
+<h1>Progress Check <span>Units 1–9</span></h1>
+<p class="lead">Wider World 4 · повторяем весь курс. В заданиях 1–4 у каждого пункта 2 попытки: после первой ошибки — подсказка, после второй — разбор. Задание 5 — творческое, его проверит учитель.</p>
+
+<details open><summary>Что было в курсе (коротко)</summary>
+<ul>
+<li><b>Грамматика:</b> relative clauses (who / which / that / whose), Passive во всех временах и с модальными, Reported Speech и reported questions, модальные (must, have to, should, allowed to), make / let, adjectives vs adverbs, формы будущего, Present Perfect, Past Simple / Continuous.</li>
+<li><b>Лексика:</b> collocations (глагол + существительное), фразовые глаголы, предлоги после глаголов и прилагательных (<span class="en">keen on, interested in</span>), праздники, фото, новости, искусство.</li>
+<li><b>Speaking:</b> вежливые просьбы, мнение, сомнение, уточнение, благодарность.</li>
+<li><b>Лайфхак:</b> сначала читай всё предложение целиком и определи, что от тебя хотят: слово, форму или порядок слов.</li>
+</ul></details>
+
+<section class="card" id="t1"><h2><span class="num">1</span>Choose the correct answer.</h2><p class="ins">Vocabulary and Grammar</p>
+<details><summary>Вспомни перед заданием</summary><ul>
+<li>Relative pronouns: <span class="en">who</span> — люди, <span class="en">which / that</span> — вещи, <span class="en">whose</span> — принадлежность.</li>
+<li>Adjective описывает предмет, adverb — действие (часто <code>-ly</code>).</li>
+<li>Indirect questions: порядок слов как в обычном предложении.</li>
+<li>Passive: <code>be + V3</code>; в будущем — <code>will be + V3</code>.</li>
+<li>Collocations и предлоги в устойчивых выражениях учим блоком.</li></ul></details>
+<div id="b1"></div><button onclick="chk(1)">Проверить</button><span class="msg" id="m1"></span></section>
+
+<section class="card" id="t2"><h2><span class="num">2</span>Complete the second sentence.</h2><p class="ins">Слово в КАПСЕ нужно использовать. Не больше пяти слов.</p>
+<details><summary>Вспомни перед заданием</summary><ul>
+<li>Reported questions: <code>if / whether</code> + порядок как в утверждении, без do / does / did.</li>
+<li>Обязанность и запрет: <span class="en">must, have to, don’t have to, mustn’t</span> — чем отличаются?</li>
+<li>Разрешение: <span class="en">can, be allowed to, let</span>. Принуждение: <span class="en">make someone do</span>.</li>
+<li>Passive с модальными: <code>modal + be + V3</code>.</li>
+<li>Phrasal verbs: смысл меняется от частицы (<span class="en">put up, give up, stay in</span>).</li>
+<li>Пиши ответ целиком одной строкой, без лишних слов.</li></ul></details>
+<p class="s"><b>1</b>Someone has put up the decorations. <span class="kw">HAVE</span><br><span class="en">The decorations have been put up.</span> <span class="fb g">(пример)</span></p>
+<div id="b2"></div><button onclick="chk(2)">Проверить</button><span class="msg" id="m2"></span></section>
+
+<section class="card" id="t3"><h2><span class="num">3</span>Complete the text with one word in each gap.</h2><p class="ins">Одно слово в каждый пропуск.</p>
+<details><summary>Вспомни перед заданием</summary><ul>
+<li>Пропуск может быть: relative pronoun, предлог, частица фразового глагола, глагол, форма прилагательного.</li>
+<li>Глагол + <code>to</code>: что можно «делать, чтобы получилось»?</li>
+<li>Прилагательные с предлогами: <span class="en">keen / good / interested + ?</span></li>
+<li>Can не имеет всех форм, поэтому в будущем его заменяют.</li>
+<li>Проверь время и согласование: она делает это всегда, фото кто-то делает.</li></ul></details>
+<p class="text" id="b3"></p><div id="f3"></div><button onclick="chk(3)">Проверить</button><span class="msg" id="m3"></span></section>
+
+<section class="card" id="t4"><h2><span class="num">4</span>Choose the correct option.</h2><p class="ins">Speaking · выбери слово из выпадающего списка.</p>
+<details><summary>Вспомни перед заданием</summary><ul>
+<li>Вежливая просьба и предложение: <span class="en">Could you tell me…? / Would you mind…?</span></li>
+<li>Мнение: <span class="en">I think… / As far as I know…</span></li>
+<li>Сомнение: <span class="en">I’m not certain. / I’m not too sure.</span></li>
+<li>Уточнение: <span class="en">Sorry, let me explain.</span> Извинение: <span class="en">I’m afraid…</span></li>
+<li>Ответ на благодарность: <span class="en">Not at all. / My pleasure. / You’re welcome.</span></li>
+<li>Читай диалог целиком: реплика связана с предыдущей.</li></ul></details>
+<div class="dlg" id="b4"></div><div id="f4"></div><button onclick="chk(4)">Проверить</button><span class="msg" id="m4"></span></section>
+
+<section class="card" id="t5"><h2><span class="num">5</span>Real life: write it in English.</h2><p class="ins">Открытое задание · выбери ОДНУ ситуацию и напиши сообщение (60–100 слов). Так пишут в реальной жизни: в мессенджере, на сайте, в почте.</p>
+<details open><summary>Ситуация A: заказ пришёл сломанным</summary><ul>
+<li>Ты заказал(а) наушники / игровую мышь / чехол в иностранном интернет-магазине. Товар пришёл сломанным, а сайт обещал доставку за 3 дня.</li>
+<li>Напиши в поддержку: что случилось, что ты хочешь (replacement или refund), и вежливо спроси, сколько это займёт.</li>
+<li>Пригодится: <span class="en">I’m writing about my order… / It was damaged when it arrived. / The website said it would be delivered… / Could you tell me how long it will take? / I’d really appreciate your help.</span></li></ul></details>
+<details open><summary>Ситуация Б: ты принимаешь друга по обмену</summary><ul>
+<li>К тебе на неделю приезжает друг из другой страны, вы познакомились в онлайн-игре или в чате. Напиши ему: что вы будете делать, что стоит взять с собой, что у вас можно и нельзя.</li>
+<li>Предложи 2–3 места или занятия, объясни почему (<span class="en">In my opinion… because…</span>), спроси про его интересы.</li>
+<li>Пригодится: <span class="en">You don’t have to bring… / You should take… / You’re not allowed to… / I’m keen on… / It’s a place where… / Let me know if you’re interested in…</span></li></ul></details>
+<p class="ins"><b>Чек-лист:</b> есть приветствие и прощание · вежливый тон · хотя бы 1 пассив · хотя бы 1 relative clause (who / which / whose) · 1 модальный (should, have to, allowed to) · перечитал(а) и проверил(а) ошибки.</p>
+<textarea id="open" placeholder="Начни с ситуации (A или Б), например: Hi! I’m writing about my order..."></textarea>
+<div class="cnt" id="cnt">0 слов</div></section>
+
+<section class="card" id="res"><h2>Результат</h2><div class="big" id="big">0/0</div>
+<p class="ins" id="rt">Отправь результаты учителю — кнопка ниже.</p>
+<button onclick="copyRep()">Скопировать учителю</button> <button class="alt" onclick="reset()">Начать заново</button>
+<div class="msg" id="cm"></div>
+<textarea id="fallback" readonly style="display:none;min-height:150px;margin-top:10px"></textarea></section>
+</main>
+<script>
+const KEY='ww4pc',norm=s=>(s||'').toLowerCase().replace(/[’‘]/g,"'").replace(/\s+/g,' ').replace(/[.!?]+$/,'').trim();
+let S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+S.it=S.it||{};S.open=S.open||'';
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const IT={},TASKS=[1,2,3,4].map(n=>({n,ids:[]}));
+function reg(t,i,type,a,show,h,l){const id='t'+t+'_'+i;IT[id]={type,a:[].concat(a),show,h,l:t+'.'+i,t};TASKS[t-1].ids.push(id);return id}
+// Task 1
+[["My dad, ___ hobby is writing fiction, has won a prize in a short story competition!",["whose","which","that"],"whose","Чьё хобби? Нужно слово со значением принадлежности."],
+["I didn’t want other people to hear what I was saying, so I ___ my voice.",["raised","lowered","reduced"],"lowered","Хотел, чтобы никто не услышал: что делают с голосом? Подумай про collocation."],
+["Of course they lost the game. They played ___!",["terrified","terrible","terribly"],"terribly","Слово описывает глагол played — нужно наречие."],
+["Do you know how long ___?",["will my appointment last","will last my appointment","my appointment will last"],"my appointment will last","Косвенный вопрос: порядок слов как в обычном предложении."],
+["Paintings of classic art will be ___ display at the gallery until the end of July.",["on","in","at"],"on","Устойчивое выражение «выставлено для показа»."],
+["Let’s ___ a surprise party for Jeremy!",["bring","put","throw"],"throw","Какой глагол обычно сочетается с party?"],
+["Our local news stories will ___ after these headlines.",["show","shown","be shown"],"be shown","Истории не показывают сами, их показывают. Passive в будущем."],
+["I ___ manage to finish my essay last night.",["couldn’t","didn’t","wasn’t"],"didn’t","Конструкция manage to + глагол в Past Simple: какой вспомогательный глагол?"]
+].forEach((q,k)=>{const id=reg(1,k+1,'mc',q[2],q[2],q[3],0);IT[id].s=q[0];IT[id].o=q[1]});
+// Task 2
+[["‘Do you like rap music?’ I asked John.","INTO","I asked John","rap music.",["if he was into","whether he was into","if he is into","whether he is into"],"if he was into","Косвенный вопрос: нужен союз if / whether и порядок слов как в утверждении."],
+["They don’t make us play competitive sports at our school.","HAVE","We","competitive sports at our school.",["don't have to play","do not have to play"],"don’t have to play","Обязанности нет: отрицание + have to."],
+["Companies can’t leave leaflets in our building.","ALLOWED","Companies","leave leaflets in our building.",["aren't allowed to","are not allowed to"],"aren’t allowed to","Запрет в форме be allowed to, отрицание."],
+["We went to bed late last night.","STAYED","We","late last night.",["stayed up"],"stayed up","Фразовый глагол: не ложиться спать = stay + частица."],
+["It’s a good idea to eat salad with your lunch.","SHOULD","Salad","with your lunch.",["should be eaten"],"should be eaten","Совет в пассиве: should + be + V3."]
+].forEach((q,k)=>{const id=reg(2,k+2,'gap',q[4],q[5],q[6],0);Object.assign(IT[id],{s:q[0],kw:q[1],pre:q[2],post:q[3]})});
+// Task 3
+const T3=[["who"],["up"],["manage"],["on"],["able"],["is","gets"],["looks"],["turning"]],
+H3=["Для человека, который что-то делает: какое relative pronoun?","Stand ___ straighter — частица направления.","«Получается сделать»: глагол + to.","Keen + предлог.","Will be ___ to look: «иметь возможность» (замена can).","Фото кто-то делает: Passive в настоящем.","Она выглядит прекрасно: глагол восприятия.","Скоро исполнится: -ing форма, ближайшее будущее."];
+T3.forEach((a,k)=>reg(3,k+2,'gap',a,a[0],H3[k],0));
+// Task 4
+const D=[["A","Can I help you?"],["B","That {1} be great, thanks. I was {2} what book to buy for my mum’s birthday."],["A","In my {3}, this detective story is good. Do you {4} to know if she likes crime?"],["B","I’m not {5}. She likes fiction, but she’s more {6} in art."],["A","Oh great! This is the best biography of Vincent Van Gogh, as far as I’m {7}."],["B","Sorry, what I {8} was she would like a novel about art."],["A","I understand. I don’t know what to {9}, I’m afraid."],["B","It’s no {10}. Thank you for your help {11}."]];
+const O4=[["would","can"],["asking","wondering"],["idea","opinion"],["happen","mean"],["know","sure"],["keen","interested"],["appreciated","concerned"],["meant","tried"],["suggest","help"],["worries","problem"],["anyway","welcome"]],
+A4=[0,1,1,0,1,1,1,0,0,1,0],
+H4=["Вежливое согласие на предложение помощи: would или can?","Какое слово делает просьбу мягче, «мне было интересно»?","Устойчивое начало: In my ___.","Вежливая форма вопроса: Do you ___ to know…?","Нет уверенности: что говорят вместо «не знаю»?","Интересуется чем-то: какое прилагательное с in?","Устойчивая фраза: as far as I’m ___ (в том, что касается меня).","Что я хотел сказать: what I ___ was…","Ответ A: не знаю, что ___ (предложить).","Ответ на извинение: It’s no ___.","Заканчивает благодарность: Thank you … ___."];
+O4.forEach((o,k)=>reg(4,k+1,'sel',o[A4[k]],o[A4[k]],H4[k],0)&&(IT['t4_'+(k+1)].o=o));
+// Render
+const $=id=>document.getElementById(id);
+$('b1').innerHTML=TASKS[0].ids.map((id,i)=>{const o=IT[id];return `<div class="q"><div class="s"><b>${i+1}</b>${o.s}</div><div class="opts" id="w_${id}">${o.o.map(x=>`<label class="chip"><input type="radio" name="${id}" value="${x}"><span>${x}</span></label>`).join('')}</div><div class="fb" id="fb_${id}"></div></div>`}).join('');
+$('b2').innerHTML=TASKS[1].ids.map((id,i)=>{const o=IT[id];return `<div class="q"><div class="s"><b>${i+2}</b>${o.s} <span class="kw">${o.kw}</span></div><div>${o.pre} <input class="gap l" id="w_${id}" autocomplete="off" autocapitalize="off" spellcheck="false"> ${o.post}</div><div class="fb" id="fb_${id}"></div></div>`}).join('');
+$('b3').innerHTML='When all my family <b class="en">get</b> together, we take a family photo. Our neighbour, <G2>, is a wedding photographer, takes it. He tells us what to do: smile, stand <G3> straighter, etc. It’s a great photo when we <G4> to get it right. I’m very keen <G5> our family photo tradition. I know that we’ll be <G6> to look at the photos in the future and remember good times. But my sister doesn’t like it when her photo <G7> taken. I’m surprised because she always <G8> incredible in them. I hope we’ll have a photo next month because I’m <G9> eighteen!'.replace(/<G(\d)>/g,(m,n)=>`<sup>${n}</sup><input class="gap" id="w_t3_${n}" autocomplete="off" autocapitalize="off" spellcheck="false">`);
+$('b4').innerHTML=D.map(d=>`<p><b>${d[0]}:</b> ${d[1].replace(/\{(\d+)\}/g,(m,n)=>`<select id="w_t4_${n}"><option value="">…</option>${O4[n-1].map(x=>`<option>${x}</option>`).join('')}</select>`)}</p>`).join('');
+// Logic
+const val=id=>{if(IT[id].type=='mc'){const r=document.querySelector(`input[name="${id}"]:checked`);return r?r.value:''}return $('w_'+id).value.trim()};
+function fb(id,txt,cls){let e=$('fb_'+id);if(!e){e=document.createElement('div');e.id='fb_'+id;$('f'+IT[id].t).appendChild(e)}e.className='fb '+cls;e.textContent=txt}
+function paint(id){const o=IT[id],s=S.it[id];if(!s)return;const w=$('w_'+id),lab='№'+o.l.split('.')[1]+' · ';
+w.classList.remove('ok','bad');
+if(s.d==1){w.classList.add('ok');fb(id,IT[id].t>2?'':'✓ Верно','g')}
+else if(s.d==2){w.classList.add('bad');fb(id,lab+'Правильно: '+o.show+'. '+o.h,'r')}
+else if(s.h.length){w.classList.add('bad');fb(id,lab+'Не совсем. Подсказка: '+o.h,'r')}
+if(s.d){w.querySelectorAll?.('input').forEach(i=>i.disabled=true);if(w.tagName!='DIV')w.disabled=true}}
+function restore(id){const s=S.it[id];if(!s||!s.h.length)return;const v=s.h[s.h.length-1];if(IT[id].type=='mc'){const r=[...document.getElementsByName(id)].find(x=>x.value==v);if(r)r.checked=true}else $('w_'+id).value=v;paint(id)}
+function upd(){const ids=Object.keys(IT),c=ids.filter(i=>S.it[i]&&S.it[i].d==1).length,d=ids.filter(i=>S.it[i]&&S.it[i].d).length;
+$('sc').textContent=`Верно: ${c}/${ids.length}`;$('pb').style.width=(d/ids.length*100)+'%';$('big').textContent=c+'/'+ids.length;
+$('rt').textContent=d==ids.length?'Все задания 1–4 пройдены. Не забудь задание 5 и отправь результаты учителю.':'Пройдено '+d+' из '+ids.length+'. Можно отправить и сейчас.'}
+function chk(n){let empty=0,c=0;TASKS[n-1].ids.forEach(id=>{const s=S.it[id]=S.it[id]||{h:[],d:0};if(s.d)return;const v=val(id);if(!v){empty++;return}
+s.h.push(v);if(IT[id].a.some(x=>norm(x)==norm(v)))s.d=1;else if(s.h.length>=2)s.d=2;paint(id)});
+save();upd();const ids=TASKS[n-1].ids,ok=ids.filter(i=>S.it[i]&&S.it[i].d==1).length,left=ids.filter(i=>!(S.it[i]&&S.it[i].d)).length;
+$('m'+n).textContent=`Верно: ${ok}/${ids.length}`+(empty?` · ответь на все пункты (${empty})`:left?' · исправь ошибки и проверь снова':' · задание завершено')}
+document.addEventListener('input',e=>{const w=e.target.closest('.opts')||e.target;if(w.classList)w.classList.remove('bad')});
+$('open').value=S.open;const wc=()=>{const n=($('open').value.trim().match(/\S+/g)||[]).length;$('cnt').textContent=n+' слов'};wc();
+$('open').addEventListener('input',()=>{S.open=$('open').value;wc();save()});
+function rep(){const ids=Object.keys(IT),c=ids.filter(i=>S.it[i]&&S.it[i].d==1).length;
+let L=['Progress Check Units 1–9 · Wider World 4','Результат (задания 1–4): '+c+'/'+ids.length,''],wr=[];
+TASKS.forEach(T=>{const k=T.ids.filter(i=>S.it[i]&&S.it[i].d==1).length;L.push('Задание '+T.n+' ('+k+'/'+T.ids.length+')');
+T.ids.forEach(id=>{const s=S.it[id],o=IT[id];if(!s||!s.h.length){L.push(o.l+') не выполнено');wr.push(o.l);return}
+L.push(o.l+') '+s.h.join(' → ')+' '+(s.d==1?'✓':s.d==2?'✗ (правильно: '+o.show+')':'…')+' · попыток: '+s.h.length);if(s.d!=1||s.h.length>1)wr.push(o.l)});L.push('')});
+L.push('Что стоит повторить (пункты с ошибками): '+(wr.length?wr.join(', '):'ошибок нет'),'','Задание 5 (открытый ответ)',S.open.trim()||'— не выполнено');return L.join('\n')}
+async function copyRep(){const t=rep();try{await navigator.clipboard.writeText(t);$('cm').textContent='Результаты скопированы. Теперь отправь их учителю.'}catch(e){const f=$('fallback');f.style.display='block';f.value=t;f.select();let ok=false;try{ok=document.execCommand('copy')}catch(x){}
+$('cm').textContent=ok?'Результаты скопированы. Теперь отправь их учителю.':'Не получилось скопировать автоматически: выдели текст ниже, скопируй и отправь учителю.'}}
+function reset(){if(!confirm('Стереть все ответы и начать заново?'))return;S={it:{},open:''};save();location.reload()}
+Object.keys(IT).forEach(restore);upd();
+</script></body></html>
