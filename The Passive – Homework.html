@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Passive – Homework</title>
+<style>
+:root{color-scheme:light;--bg:#f4f6ff;--card:#fff;--ink:#1d2140;--mut:#6b7094;--pri:#5b5bf0;--pri2:#e6e6ff;--ok:#18a874;--okb:#dcf7ec;--bad:#e5484d;--badb:#ffe4e5;--acc:#ffd84d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px 14px 60px}
+header{background:linear-gradient(135deg,#5b5bf0,#8a6bff);color:#fff;border-radius:22px;padding:22px 20px;margin-bottom:18px}
+header h1{margin:0;font-size:28px}header p{margin:4px 0 0;opacity:.9}
+section{background:var(--card);border-radius:20px;padding:18px;margin-bottom:18px;box-shadow:0 2px 10px rgba(40,40,120,.07)}
+h2{margin:0 0 6px;font-size:20px;display:flex;gap:10px;align-items:center}
+.num{background:var(--pri);color:#fff;border-radius:10px;min-width:30px;height:30px;display:inline-grid;place-items:center;font-size:16px}
+.task{color:var(--mut);margin:0 0 12px}
+.rule{background:var(--pri2);border-radius:14px;padding:12px 14px;margin:10px 0}
+.rule b.f{background:var(--acc);padding:1px 8px;border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:15px;display:block;overflow-x:auto}
+td,th{border-bottom:1px solid #dcdcf5;padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--mut);font-weight:600}
+.v{color:var(--pri);font-weight:600}
+/* flashcards */
+.fc{perspective:900px;max-width:380px;margin:8px auto}
+.card{position:relative;height:210px;transform-style:preserve-3d;transition:transform .45s;cursor:pointer}
+.card.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px;border:2px solid var(--pri)}
+.front{background:#fff;font-size:40px;font-weight:700;color:var(--pri)}
+.front small,.back small{font-size:13px;color:var(--mut);font-weight:400;margin-top:8px}
+.back{background:var(--pri);color:#fff;transform:rotateY(180deg);font-size:26px;font-weight:700}
+.back .tr{font-size:20px;font-weight:400;margin-top:8px;color:var(--acc)}
+.row{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:10px}
+button{font:inherit;border:0;border-radius:12px;padding:10px 16px;cursor:pointer;background:var(--pri2);color:var(--pri);font-weight:600}
+button:hover{filter:brightness(.96)}
+button.p{background:var(--pri);color:#fff}
+button.big{padding:14px 22px;font-size:17px}
+/* gaps */
+ol{padding-left:0;list-style:none;margin:0}
+li.q{padding:8px 0;border-bottom:1px dashed #e1e1f3}
+li.q:last-child{border:0}
+.hint{color:var(--mut);font-size:14px}
+.ex{color:var(--ok);font-style:italic}
+input.g,select.g{font:inherit;border:0;border-bottom:2px solid var(--pri);background:#f4f4ff;border-radius:8px 8px 0 0;padding:3px 8px;color:var(--ink);max-width:100%}
+input.g.w{display:block;width:100%;margin-top:4px}
+input.g.ok,select.g.ok{background:var(--okb);border-color:var(--ok)}
+input.g.bad,select.g.bad{background:var(--badb);border-color:var(--bad)}
+input.g.rev,select.g.rev{background:#fff3c4;border-color:#e0a800}
+.txt{line-height:2.2}
+.msg{margin-top:10px;font-weight:600;min-height:24px}
+textarea{width:100%;font:inherit;border:2px solid #dcdcf5;border-radius:12px;padding:8px 10px;resize:vertical;min-height:62px}
+textarea:focus,input:focus,select:focus{outline:2px solid var(--pri)}
+.prod p{margin:10px 0 2px;font-weight:600}
+#rep{font:13px/1.45 ui-monospace,Consolas,monospace;min-height:200px;display:none;margin-top:10px}
+#score{font-size:42px;font-weight:800;color:var(--pri)}
+</style>
+</head>
+<body>
+<main>
+<header><h1>The Passive 🎯</h1><p>Unit 7.2 · Grammar · домашнее задание, A2+</p></header>
+
+<section>
+<h2><span class="num">0</span>Карточки: неправильные глаголы</h2>
+<p class="task">Нажми на карточку, чтобы перевернуть. Слушай и повторяй вслух три формы глагола.</p>
+<div class="fc"><div class="card" id="card" onclick="flipC()">
+<div class="face front"><span id="cf">be</span><small>нажми, чтобы перевернуть</small></div>
+<div class="face back"><span id="cb"></span><span class="tr" id="ct"></span></div></div></div>
+<div class="row">
+<button onclick="mv(-1)">← Назад</button><span id="cn" class="hint">1 / 18</span><button onclick="mv(1)">Дальше →</button>
+</div>
+<div class="row"><button class="p" onclick="say(false)">🔊 Глагол</button><button class="p" onclick="say(true)">🔊 Все 3 формы</button><button onclick="shuf()">🔀 Перемешать</button></div>
+<p class="hint" id="nov" style="text-align:center"></p>
+</section>
+
+<section>
+<h2><span class="num">★</span>Правило: The Passive</h2>
+<div class="rule"><b class="f">be + V3</b> (Past Participle). Используем, когда важно <b>что сделано</b>, а не кто это сделал. Если нужно назвать, кто сделал — добавляем <b>by</b>: <i>The game was created <b>by experts</b>.</i></div>
+<table>
+<tr><th>Время</th><th>Формула</th><th>Пример</th></tr>
+<tr><td>Present Simple</td><td><span class="v">am / is / are</span> + V3</td><td>The game <span class="v">is designed</span> for groups. Prizes <span class="v">are given</span> out.</td></tr>
+<tr><td>Past Simple</td><td><span class="v">was / were</span> + V3</td><td>The game <span class="v">was created</span> by experts. We <span class="v">were invited</span>.</td></tr>
+<tr><td>Present Perfect</td><td><span class="v">has / have been</span> + V3</td><td>This room <span class="v">has been visited</span> by players.</td></tr>
+<tr><td>Модальные</td><td>can / must / should + <span class="v">be</span> + V3</td><td>The game <span class="v">must be finished</span> in one hour. It <span class="v">can't be won</span>.</td></tr>
+</table>
+<div class="rule"><b>Как переделать в пассив:</b><br>1) Объект из активного предложения становится подлежащим. 2) Глагол: <i>be</i> в том же времени + V3. 3) Кто делал — в конец с <i>by</i> (или совсем убираем: <i>they, people</i>).<br><i>They speak English in India. → <span class="ex">English is spoken in India.</span></i><br>Отрицание: <i>not</i> после первого вспомогательного — <i>hasn't been taught, wasn't written, can't be played</i>.</div>
+</section>
+
+<section>
+<h2><span class="num">1</span>Complete the sentences</h2>
+<p class="task">Вставь глагол в скобках в Passive. <span class="ex">Пример: Billions of emails are sent every day. (send – Present Simple)</span></p>
+<ol id="t1"></ol><button class="p" onclick="chk(1)">Проверить</button><div class="msg" id="m1"></div>
+</section>
+
+<section>
+<h2><span class="num">2</span>Choose the correct option</h2>
+<p class="task">Выбери правильный вариант в каждом пропуске.</p>
+<div class="txt" id="t2"></div><button class="p" onclick="chk(2)">Проверить</button><div class="msg" id="m2"></div>
+</section>
+
+<section>
+<h2><span class="num">3</span>Rewrite the sentences in the passive</h2>
+<p class="task">Перепиши предложения в Passive. <span class="ex">Пример: They speak English in India. → English is spoken in India.</span></p>
+<ol id="t3"></ol><button class="p" onclick="chk(3)">Проверить</button><div class="msg" id="m3"></div>
+</section>
+
+<section>
+<h2><span class="num">4</span>Complete the article</h2>
+<p class="task">Поставь глаголы в скобках в Passive. <span class="ex">Пример: What <u>can be done</u> (can/do)…</span></p>
+<h3 style="margin:6px 0">Teaching communication skills</h3>
+<div class="txt" id="t4"></div><button class="p" onclick="chk(4)">Проверить</button><div class="msg" id="m4"></div>
+</section>
+
+<section class="prod">
+<h2><span class="num">5</span>Your turn! Continue the sentences</h2>
+<p class="task">Продолжи предложения своими словами. Используй Passive (be + V3). Этот ответ проверит учитель.</p>
+<p>1. English is spoken …</p><textarea data-p="1" placeholder="English is spoken in …"></textarea>
+<p>2. My favourite game was made …</p><textarea data-p="2"></textarea>
+<p>3. In my school, phones must be …</p><textarea data-p="3"></textarea>
+<p>4. Homework can't be …</p><textarea data-p="4"></textarea>
+<p>5. My phone has been …</p><textarea data-p="5"></textarea>
+<p>6. Write your own passive sentence about something in your city or country.</p><textarea data-p="6"></textarea>
+</section>
+
+<section style="text-align:center">
+<h2 style="justify-content:center">Готово!</h2>
+<div id="score">–</div><p class="hint" id="sc2">Нажми кнопку — результаты скопируются, их останется отправить учителю.</p>
+<button class="p big" onclick="send()">📨 Отправить учителю</button>
+<div class="msg" id="sm"></div>
+<textarea id="rep" readonly onclick="this.select()"></textarea>
+</section>
+</main>
+
+<script>
+/* ---------- flashcards ---------- */
+var V=[["be","was / were","been","быть"],["do","did","done","делать"],["find","found","found","находить"],["give","gave","given","давать"],["hear","heard","heard","слышать"],["lose","lost","lost","терять; проигрывать"],["make","made","made","делать; создавать"],["send","sent","sent","отправлять"],["show","showed","shown","показывать"],["speak","spoke","spoken","говорить"],["teach","taught","taught","учить; преподавать"],["tell","told","told","рассказывать; сказать"],["think","thought","thought","думать"],["write","wrote","written","писать"],["pay","paid","paid","платить"],["have","had","had","иметь; есть"],["raise","raised","raised","поднимать; повышать (правильный глагол)"],["stand","stood","stood","стоять"]];
+var ci=0,seen={};
+function sp(t){try{var u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function showC(){var c=document.getElementById("card");c.classList.remove("flip");var v=V[ci];
+ document.getElementById("cf").textContent=v[0];
+ document.getElementById("cb").textContent=v[1]+" · "+v[2];
+ document.getElementById("ct").textContent=v[3];
+ document.getElementById("cn").textContent=(ci+1)+" / "+V.length;sp(v[0]);}
+function flipC(){var c=document.getElementById("card");c.classList.toggle("flip");seen[ci]=1;
+ if(c.classList.contains("flip"))sp(V[ci][0]+", "+V[ci][1].replace("/",",")+", "+V[ci][2]);
+ document.getElementById("nov").textContent="Просмотрено оборотов: "+Object.keys(seen).length+" из "+V.length;}
+function mv(d){ci=(ci+d+V.length)%V.length;showC()}
+function say(all){var v=V[ci];sp(all?v[0]+", "+v[1].replace("/",",")+", "+v[2]:v[0])}
+function shuf(){for(var i=V.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=V[i];V[i]=V[j];V[j]=t}ci=0;seen={};showC()}
+document.getElementById("cf").textContent=V[0][0];document.getElementById("cb").textContent=V[0][1]+" · "+V[0][2];document.getElementById("ct").textContent=V[0][3];
+
+/* ---------- tasks ---------- */
+var R=[];
+function norm(s){return s.toLowerCase().replace(/[’`]/g,"'").replace(/[.!]+$/,"").replace(/\s+/g," ").trim()}
+function reg(t,tpl,ans){R.push({t:t,tpl:tpl,ans:ans,att:0,h:[],done:0,ok:0});return R.length-1}
+function inp(i,w,cls){return '<input class="g '+(cls||"")+'" data-i="'+i+'" autocomplete="off" autocapitalize="off" spellcheck="false" style="width:'+w+'ch">'}
+function sel(i,a,b){return '<select class="g" data-i="'+i+'"><option value="">…</option><option>'+a+'</option><option>'+b+'</option></select>'}
+
+var T1=[["Mobile phones ","for years.","use – Present Perfect",["have been used"]],
+["The message "," by Adam.","not write – Past Simple",["wasn't written","was not written"]],
+["Mobile phones "," in class.","turn off – must",["must be turned off"]],
+["Ball games "," here.","play – can't",["can't be played","cannot be played"]],
+["My stolen bike "," yet.","not find – Present Perfect",["hasn't been found","has not been found"]]];
+T1.forEach(function(x,k){var i=reg(1,x[0]+"__"+x[1],x[3]);
+ document.getElementById("t1").insertAdjacentHTML("beforeend",'<li class="q"><b>'+(k+2)+'.</b> '+x[0]+inp(i,16)+x[1]+' <span class="hint">('+x[2]+')</span></li>')});
+document.getElementById("t1").insertAdjacentHTML("afterbegin",'<li class="q"><b>1.</b> Billions of emails <span class="ex"><u>are sent</u></span> every day. <span class="hint">(send – Present Simple)</span></li>');
+
+var T2=[["was sent","has been sent"],["by","for"],["can be designed","have been designed"],["be played","been played"],["have been asked","were asked"],["were given","are given"]];
+var A2=["was sent","by","have been designed","be played","were asked","are given"];
+var s2="Last Tuesday, our class {0} to a workshop on improving our communication skills. We were told {1} our teachers that it would be fun. They were right! We played several games in pairs and small groups. These are special games – they {2} to make us communicate without speaking. They must {3} using gestures or body language only. At the end we {4} what we thought of the workshop, and I gave it 10/10. I like it when we {5} workshops like this at school.";
+s2=s2.replace(/\{(\d)\}/g,function(m,n){n=+n;var i=reg(2,"__",[A2[n]]);return sel(i,T2[n][0],T2[n][1])});
+document.getElementById("t2").innerHTML=s2;
+
+var T3=[["They make many mobile phones in China.",["Many mobile phones are made in China."]],
+["They haven't taught Latin in our school for years.",["Latin hasn't been taught in our school for years.","Latin has not been taught in our school for years."]],
+["You can show your pictures on the big screen.",["Your pictures can be shown on the big screen."]],
+["You must write your answers on this form.",["Your answers must be written on this form."]],
+["They haven't made any good films this year.",["Good films haven't been made this year.","No good films have been made this year.","Any good films haven't been made this year.","Good films have not been made this year."]]];
+T3.forEach(function(x,k){var i=reg(3,x[0]+" → __",x[1]);
+ document.getElementById("t3").insertAdjacentHTML("beforeend",'<li class="q"><b>'+(k+2)+'.</b> '+x[0]+inp(i,40,"w")+'</li>')});
+document.getElementById("t3").insertAdjacentHTML("afterbegin",'<li class="q"><b>1.</b> They speak English in India. <span class="ex">→ English is spoken in India.</span></li>');
+
+var T4=[["answer",["was answered"]],["must/teach",["must be taught"]],["show",["are shown"]],["lose",["are lost"]],["design",["have been designed"]],["give",["are given"]],["record",["are recorded"]],["swap",["are swapped"]]];
+var s4="What <u>can be done</u> (can/do) to teach communication skills in school? The question {0} by one school in the north of England. At St Andrew's School, teachers believe that students {1} how to communicate properly. They have special classes where students {2} how to introduce themselves, how to give presentations and the importance of eye contact. These classes started last year, when teachers noticed some students were having difficulties in speaking exams. Marks {3} in exams because of communication problems. Since then, a number of additional workshops {4} to help students practise these skills. One of the activities the pupils {5} is to prepare a short presentation. Students {6} by their partner using a mobile phone. The phones {7} and they give each other feedback.";
+s4=s4.replace(/\{(\d)\}/g,function(m,n){n=+n;var i=reg(4,"("+T4[n][0]+") __",T4[n][1]);return '<sup>'+(n+1)+'</sup>'+inp(i,15)+' <span class="hint">('+T4[n][0]+')</span>'});
+document.getElementById("t4").innerHTML=s4;
+
+var MSG={1:"",2:"",3:"",4:""};
+function chk(t){
+ var tot=0,ok=0,pend=0,empty=0;
+ R.forEach(function(r,i){if(r.t!==t)return;tot++;
+  var el=document.querySelector('[data-i="'+i+'"]');
+  if(!r.done){var v=norm(el.value);
+   if(!v){empty++;return}
+   r.att++;r.h.push(el.value.trim());
+   if(r.ans.some(function(a){return norm(a)===v})){r.done=1;r.ok=1;el.className=el.className.replace(/ ?(bad|ok|rev)/g,"")+" ok";el.disabled=true}
+   else if(r.att>=2){r.done=1;el.value=r.ans[0];el.className=el.className.replace(/ ?(bad|ok|rev)/g,"")+" rev";el.disabled=true}
+   else{el.className=el.className.replace(/ ?(bad|ok|rev)/g,"")+" bad"}}
+  if(r.ok)ok++;if(!r.done)pend++});
+ var m=document.getElementById("m"+t),h={1:"be + V3. Проверь время: have/has been, was/were, can't/must + be.",2:"Подумай: кто делает действие и какое время?",3:"Объект становится подлежащим: be + V3.",4:"be + V3, время смотри по смыслу и по словам since, last year, must."}[t];
+ if(empty===tot){m.textContent="Сначала заполни ответы.";m.style.color="var(--mut)";return}
+ if(pend){m.style.color="var(--bad)";m.textContent="Верно: "+ok+" из "+tot+". Исправь красные пропуски — у тебя есть вторая попытка. Подсказка: "+h}
+ else{m.style.color="var(--ok)";m.textContent="Готово: "+ok+" из "+tot+(ok<tot?". Жёлтым показан правильный ответ — перечитай правило.":" — отлично!")}
+ upd()}
+function total(){var o=0;R.forEach(function(r){if(r.ok)o++});return o}
+function upd(){document.getElementById("score").textContent=total()+" / "+R.length}
+
+/* ---------- report ---------- */
+var NAMES={1:"Task 1 – Complete the sentences",2:"Task 2 – Choose the correct option",3:"Task 3 – Rewrite in the passive",4:"Task 4 – Complete the article"};
+function report(){
+ var L=["The Passive (Wider World 4, 7.2) – Homework","Результат: "+total()+"/"+R.length,"Карточки просмотрено: "+Object.keys(seen).length+"/"+V.length,""];
+ var wrong=[];
+ [1,2,3,4].forEach(function(t){L.push(NAMES[t]);var n=0;
+  R.forEach(function(r){if(r.t!==t)return;n++;
+   var last=r.h.length?r.h[r.h.length-1]:"(не заполнено)";
+   var line=n+". "+r.tpl.replace("__",r.ok?r.h[r.h.length-1]:last);
+   if(r.ok){L.push(line+(r.att>1?"  ✓ со 2 попытки (1-я: "+r.h[0]+")":"  ✓"))}
+   else{L.push(line+"  ✗"+(r.h.length?" (ответы: "+r.h.join(" → ")+")":"")+" → верно: "+r.ans[0]);wrong.push(r.ans[0])}});
+  L.push("")});
+ L.push("Task 5 – Production");
+ var ps=document.querySelectorAll("textarea[data-p]"),st=["English is spoken","My favourite game was made","In my school, phones must be","Homework can't be","My phone has been","Own sentence:"];
+ ps.forEach(function(p,i){L.push((i+1)+". "+(i<5?st[i]+" ":"")+(p.value.trim()||"(пусто)"))});
+ if(wrong.length){L.push("","Стоит повторить: "+wrong.length+" ошибок(и) в Task 1–4")}
+ return L.join("\n")}
+function send(){
+ var txt=report(),ta=document.getElementById("rep"),sm=document.getElementById("sm");upd();
+ ta.value=txt;
+ function ok(){sm.style.color="var(--ok)";sm.textContent="Результаты скопированы. Теперь отправь их учителю."}
+ function fb(){ta.style.display="block";ta.focus();ta.select();try{document.execCommand("copy");ok()}catch(e){sm.style.color="var(--bad)";sm.textContent="Скопируй текст ниже вручную и отправь учителю."}}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fb)}else fb()}
+</script>
+</body>
+</html>
