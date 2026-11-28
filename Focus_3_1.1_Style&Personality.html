@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Focus 3 · 1.1 Style &amp; Personality</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👔</text></svg>">
+<style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1c2230;--mut:#667085;--ac:#e8473c;--ac2:#1f6f6b;--ok:#1a8a4a;--bad:#d03a3a;--ln:#e3dfd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--card:#1e242e;--ink:#eef0f4;--mut:#9aa3b2;--ac:#ff7a70;--ac2:#4fc0b8;--ok:#4cd08a;--bad:#ff7a7a;--ln:#323a47}}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px 60px}
+header{padding:22px 0 8px}
+h1{font-size:26px;margin:0 0 4px;letter-spacing:-.5px}
+header p{margin:0;color:var(--mut)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding:8px 0;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mut)}
+.bar i{flex:1;height:6px;background:var(--ln);border-radius:9px;overflow:hidden}
+.bar b{display:block;height:100%;width:0;background:var(--ac2);transition:width .3s}
+section{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px;margin:14px 0}
+h2{font-size:19px;margin:0 0 4px}
+.d{color:var(--mut);margin:0 0 12px;font-size:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+button{font:inherit;cursor:pointer;border:1px solid var(--ln);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 14px}
+button:hover{border-color:var(--ac2)}
+button.on,button.pri{background:var(--ac2);color:#fff;border-color:var(--ac2)}
+.fc{min-height:210px;border-radius:14px;border:2px solid var(--ln);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;cursor:pointer;user-select:none}
+.fc .e{font-size:58px;line-height:1.1}
+.fc .w{font-size:26px;font-weight:700;margin-top:6px}
+.fc .ru{font-size:22px;font-weight:600;color:var(--ac2)}
+.fc .ex{margin-top:10px;font-style:italic}
+.fc small{color:var(--mut);margin-top:10px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+.it{padding:10px 0;border-top:1px solid var(--ln)}
+.it:first-of-type{border-top:0}
+.it p{margin:0 0 6px}
+.n{color:var(--ac);font-weight:700;margin-right:6px}
+input[type=text],textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--ln);border-radius:8px;padding:6px 10px;width:150px;max-width:100%}
+textarea{width:100%;min-height:110px}
+input:disabled{opacity:1}
+.ok input,.ok .o.g{border-color:var(--ok)}
+.bad input{border-color:var(--bad)}
+.fb{font-size:14px;min-height:20px;margin-top:4px}
+.fb.g{color:var(--ok)}.fb.r{color:var(--bad)}.fb.h{color:var(--mut)}
+.o{margin:0 2px;padding:3px 10px;border-radius:8px}
+.o.g{background:var(--ok);color:#fff;border-color:var(--ok)}
+.o.r{text-decoration:line-through;color:var(--bad);border-color:var(--bad)}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.bank span{border:1px dashed var(--mut);border-radius:8px;padding:2px 10px}
+.sc{font-size:44px;font-weight:800;color:var(--ac2)}
+pre{white-space:pre-wrap}
+</style></head>
+<body><div class="wrap">
+<header><h1>Style &amp; Personality</h1><p>Focus 3 · Unit 1.1 · Word Store 1A, 1B, 1C</p></header>
+<div class="bar"><span id="pt">0/0</span><i><b id="pb"></b></i></div>
+
+<section id="s0"><h2>Part 1 · Cards</h2>
+<p class="d">Tap the card to flip it. Press 🔊 to listen. Look through all the cards before the tasks.</p>
+<div class="fc" id="fc"></div>
+<div class="nav"><button id="pv">←</button><button id="au">🔊 Listen</button><span id="cn" class="d"></span><button id="nx" class="pri">→</button></div></section>
+
+<div id="tasks"></div>
+
+<section id="s5"><h2>Task 5 · Write about a person</h2>
+<p class="d">Write 3–4 sentences about a friend, a family member or a famous person. Use at least 2 phrases from the cards (e.g. <i>comes across as…</i>, <i>goes for a casual look</i>) and 2 personality words. Your answer goes to the teacher.</p>
+<textarea id="op" placeholder="My friend … is …"></textarea></section>
+
+<section id="fin"><h2>Results</h2>
+<p class="d">When you finish, press the button and send the report to your teacher.</p>
+<div id="res"><div class="sc" id="sc"></div>
+<textarea id="rp" readonly style="min-height:260px"></textarea>
+<p><button class="pri" id="cp">Отправить учителю</button></p>
+<div class="fb" id="cf"></div></div>
+<p><button id="rs">Start again</button></p></section>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const C=`a waistcoat|жилет|🦺|He wears a waistcoat with his suit.|0
+a silk tie|шёлковый галстук|👔|Dad’s silk tie is dark green.|0
+a dark suit|тёмный костюм|🤵|He wore a dark suit to the wedding.|0
+a fleece|флисовая кофта|🧥|Take a fleece – it’s cold today.|0
+a denim jacket|джинсовая куртка|🧥|My denim jacket goes with everything.|0
+bangles|браслеты-кольца|⭕|She wears colourful bangles on her wrist.|0
+faded jeans|потёртые (выцветшие) джинсы|👖|I love my old faded jeans.|0
+a blouse|блузка|👚|She wore a purple blouse to school.|0
+a necklace|ожерелье, цепочка|📿|Her necklace has a purple stone.|0
+a beanie|шапка-бини|🧢|Put on a beanie – it’s freezing!|0
+a sweatshirt / a hoody|толстовка / худи|👕|I wear a hoody for sport.|0
+ankle boots|ботильоны, полусапожки|🥾|Her black ankle boots are leather.|0
+high heels|туфли на каблуках|👠|High heels make you look taller.|0
+vintage sunglasses|винтажные солнечные очки|🕶️|Those vintage sunglasses look cool.|0
+a leather belt|кожаный ремень|🥋|He needs a leather belt for his jeans.|0
+leggings|леггинсы|🏃|She wears leggings for yoga.|0
+trendy|модный|🔥|I’m trendy – I enjoy wearing the latest designs.|1
+to be in fashion|быть в моде|✨|Big hoodies are in fashion now.|1
+to go out of fashion|выходить из моды|📉|Some clothes never go out of fashion.|1
+to be the centre of attention|быть в центре внимания|🎤|Andrew loves being the centre of attention.|1
+to go for a casual look|выбирать повседневный стиль|👟|He usually goes for a casual look.|1
+to come across as…|производить впечатление|🎭|She comes across as kind and friendly.|1
+to care about your appearance|заботиться о внешности|🪞|He cares a lot about his appearance.|1
+to feel comfortable in your own skin|чувствовать себя собой, комфортно|😌|Ian doesn’t feel comfortable in his own skin.|1
+to go with the flow|плыть по течению|🌊|We simply go with the flow.|1
+to follow the trends|следовать трендам|📱|I never follow the latest trends.|1
+carefree|беззаботный (happy, without worries)|😎|Carefree people don’t worry about results.|2
+down-to-earth|практичный, приземлённый (= practical)|🌱|Mark is down-to-earth. He never has crazy ideas.|2
+rebellious|бунтарский, трудный (= stubborn)|🤘|Jake was rebellious and gave his parents problems.|2
+shallow|поверхностный (not deep)|🥄|A shallow person isn’t interested in serious things.|2
+easy-going|спокойный, необидчивый|🙂|Leonard is easy-going. He never gets annoyed.|2
+vain|тщеславный (loves how he looks)|🪞|A vain person often looks at his own image.|2
+generous|щедрый|🎁|She is generous and gives money to charity.|2
+stingy|скупой, жадный|🪙|A stingy person doesn’t like to spend money on others.|2`.split("\n").map(l=>{const a=l.split("|");return{en:a[0],ru:a[1],em:a[2],ex:a[3],g:+a[4]}});
+const GN=["👕 Clothes","✨ Fashion phrases","🙂 Personality"];
+const TASKS=[
+{id:"a",h:"Task 1 · Word Store 1A, ex. 3",d:"Read the definitions. Write the names of clothes and accessories.",k:"gap",items:[
+["Some women wear these shoes in order to look taller and more elegant. {}",["high heels"]],
+["A formal piece of clothing which is worn over a shirt and under a jacket. {}",["waistcoat"]],
+["These have a classic design from the past and protect your eyes from the sun. {}",["vintage sunglasses"]],
+["A casual top which is made of very warm synthetic material, has long sleeves and is excellent in cold weather. {}",["fleece"]],
+["A piece of jewellery which men or women wear around their necks. {}",["necklace"]],
+["This is a kind of loose sporty jumper often made from cotton and can be worn for exercising. {}",["sweatshirt","hoody","hoodie"]],
+["These trousers are made from denim and they look like they have been worn a lot because of the light colour of the material. {}",["faded jeans"]],
+["This narrow piece of material, usually animal skin, has a metal piece at one end to help hold your trousers around your waist. {}",["leather belt","belt"]]]},
+{id:"b",h:"Task 2 · Word Store 1A, ex. 4",d:"Choose the correct words.",k:"mc",
+t:"The Prince and Princess attended the premiere of the new James Bond film on Saturday. Prince Nicholas looked very smart in an elegant and stylish {0} and an eye-catching purple {1} around his neck. Princess Abigail wore a dark knee-length skirt and a gorgeous blue {2} from her favourite Paris boutique. The Princess always mixes casual and smart clothes to good effect and for this event she chose to wear large gold {3} around her wrist and unusual {4} – which helped make sure she wasn’t taller than her husband.",
+items:[["dark suit","denim jacket"],["leather belt","silk tie"],["shirt","blouse"],["beanies","bangles"],["ankle boots","leggings"]]},
+{id:"c",h:"Task 3 · Word Store 1B, ex. 5",d:"Complete the sentences with the words from the box. There are two extra words.",k:"gap",bank:"across appearance attention casual dressed fashion flow look skin",items:[
+["Some clothes never seem to go out of {} – like jeans, for example.",["fashion"]],
+["Andrew loves being the centre of {} and that’s why he wears such expensive clothes.",["attention"]],
+["It’s unusual to see Ronny looking so smart – he usually goes for a {} look.",["casual"]],
+["Ian never looks like he is comfortable in his own {}. Maybe some fashion advice would help him feel more confident?",["skin"]],
+["You don’t have to spend a lot of money on caring about your {}. There are plenty of fashionable clothes in second-hand stores nowadays.",["appearance"]],
+["Sandy comes {} as very serious because she wears suits but in fact she’s very relaxed most of the time.",["across"]],
+["We never follow the latest trends – we simply go with the {} and wear what we want.",["flow"]]]},
+{id:"d",h:"Task 4 · Word Store 1C, ex. 6",d:"Complete the sentences with the correct words. The first letters are given.",k:"gap",items:[
+["Mark never does anything stupid or has unrealistic ideas. He’s incredibly {}.",["down-to-earth"],"d"],
+["People who are {} tend not to worry too much about the results of their actions.",["carefree"],"c"],
+["Jake’s always been {} and has given his parents a lot of problems over the years.",["rebellious"],"r"],
+["You can tell if somebody is {} by how often they look in shop windows at their own image.",["vain"],"v"],
+["I asked Boris to donate to charity but he said he’d rather spend money on a nice meal or buy something for himself. Is he always so selfish and {}?",["stingy"],"s"]]}];
+const norm=s=>s.toLowerCase().replace(/[’']/g,"'").replace(/-/g," ").replace(/^(a|an) /,"").replace(/\s+/g," ").trim();
+let S={t:{},seen:{},op:""};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem("f311")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("f311",JSON.stringify(S))}catch(e){}};
+const ITEMS={},ORDER=[];
+const st=id=>S.t[id]||(S.t[id]={a:[],ok:false,done:false});
+/* ---- cards ---- */
+let grp=0,idx=0,flip=false;
+const list=()=>C;
+function speak(t){if(!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=.9;speechSynthesis.speak(u)}
+function card(){const l=list(),c=l[idx];
+
+$("#fc").innerHTML=flip?`<div class="ru">${c.ru}</div><div class="ex">“${c.ex}”</div><small>tap to flip back</small>`:`<div class="e">${c.em}</div><div class="w">${c.en}</div><small>tap to see translation and example</small>`;
+$("#cn").textContent=(idx+1)+" / "+l.length+" · seen "+Object.keys(S.seen).length+"/"+C.length}
+$("#fc").onclick=()=>{flip=!flip;if(flip){S.seen[list()[idx].en]=1;save()}card()};
+$("#au").onclick=()=>{const c=list()[idx];speak(c.en.replace(/…/g,"")+(flip?". "+c.ex:""))};
+$("#nx").onclick=()=>{idx=(idx+1)%list().length;flip=false;card();$("#au").click()};
+$("#pv").onclick=()=>{idx=(idx-1+list().length)%list().length;flip=false;card();$("#au").click()};
+/* ---- tasks ---- */
+function build(){let h="";
+TASKS.forEach(T=>{h+=`<section><h2>${T.h}</h2><p class="d">${T.d}</p>`;
+if(T.bank)h+=`<div class="bank">${T.bank.split(" ").map(w=>`<span>${w}</span>`).join("")}</div>`;
+if(T.k=="gap"){T.items.forEach((it,i)=>{const id=T.id+(i+1);ITEMS[id]={k:"gap",a:it[1],p:it[2]||"",q:it[0],lab:T.h.split(" · ")[0]+" – "+(i+1)};ORDER.push(id);
+const inp=`<input type="text" id="in_${id}" size="14" placeholder="${it[2]?it[2]+"…":"…"}" autocomplete="off" autocapitalize="off" spellcheck="false"> <button onclick="chk('${id}')">Check</button>`;
+h+=`<div class="it" id="r_${id}"><p><span class="n">${i+1}</span>${it[0].replace("{}",inp)}</p><div class="fb" id="f_${id}"></div></div>`})}
+else{let t=T.t;T.items.forEach((o,i)=>{const id=T.id+(i+1);ITEMS[id]={k:"mc",a:[o[1]=="x"?"":o[0]],o,lab:T.h.split(" · ")[0]+" – "+(i+1)};ORDER.push(id);
+t=t.replace(`{${i}}`,`<span id="r_${id}">${o.map((x,j)=>`<button class="o" id="o_${id}_${j}" onclick="pick('${id}',${j})">${x}</button>`).join("/")}</span>`)});
+h+=`<p style="line-height:2.3">${t}</p>`}
+h+="</section>"});
+$("#tasks").innerHTML=h;
+ITEMS.b1.a=["dark suit"];ITEMS.b2.a=["silk tie"];ITEMS.b3.a=["blouse"];ITEMS.b4.a=["bangles"];ITEMS.b5.a=["ankle boots"];
+ORDER.forEach(paint);
+$("#in_a1")&&0;
+document.querySelectorAll("input[type=text]").forEach(e=>e.onkeydown=ev=>{if(ev.key=="Enter")chk(e.id.slice(3))})}
+function chk(id){const I=ITEMS[id],r=st(id);if(r.done)return;const el=$("#in_"+id),v=el.value.trim();if(!v)return;
+r.a.push(v);const good=I.a.some(a=>norm(a)==norm(v));
+if(good){r.ok=true;r.done=true}else if(r.a.length>=3){r.done=true}
+save();paint(id)}
+function pick(id,j){const I=ITEMS[id],r=st(id);if(r.done)return;const x=I.o[j];r.a.push(x);if(x==I.a[0]){r.done=true;r.ok=r.a.length==1}save();paint(id)}
+function paint(id){const I=ITEMS[id],r=st(id);
+if(I.k=="gap"){const el=$("#in_"+id),f=$("#f_"+id),n=r.a.length;el.value=r.a[n-1]||"";el.disabled=r.done;
+let m="",c="h";
+if(r.done&&r.ok){m="✓ Correct!"+(n>1?" (attempt "+n+")":"");c="g"}
+else if(r.done){m="The answer is: "+I.a[0]+". Remember it!";c="r"}
+else if(n==1){m="Not quite. Check the spelling and try again.";c="r"}
+else if(n==2){const w=I.a[0];m="Hint: "+w[0]+"… ("+w.length+" letters"+(w.indexOf("-")>0?", with hyphens":"")+"). Last try!";c="h"}
+f.textContent=m;f.className="fb "+c;$("#r_"+id).className="it "+(r.done?(r.ok?"ok":"bad"):"")}
+else{I.o.forEach((x,j)=>{const b=$("#o_"+id+"_"+j);b.className="o";b.disabled=false;
+if(r.a.includes(x)){b.className="o "+(x==I.a[0]?"g":"r");b.disabled=true}else if(r.done)b.disabled=true})}
+prog()}
+function prog(){const d=ORDER.filter(i=>st(i).done).length;$("#pt").textContent=d+" / "+ORDER.length;$("#pb").style.width=d/ORDER.length*100+"%";refresh()}
+/* ---- results ---- */
+function report(){let ok=0,L=[],rep=[];
+ORDER.forEach(id=>{const I=ITEMS[id],r=st(id);if(r.ok)ok++;if(r.done&&!r.ok)rep.push(I.a[0])});
+const sc=ok+"/"+ORDER.length;let cur="";
+L.push("Focus 3 · 1.1 Style & Personality","Результат: "+sc,"Карточки просмотрены: "+Object.keys(S.seen).length+"/"+C.length,"");
+ORDER.forEach(id=>{const I=ITEMS[id],r=st(id),h=I.lab.split(" – ")[0];if(h!=cur){cur=h;L.push("— "+h+" —")}
+const n=I.lab.split(" – ")[1];
+if(!r.a.length){L.push(n+". не выполнено");return}
+const ans=r.a.map((a,i)=>a+(i<r.a.length-1||!r.done?" ✗":(r.ok?" ✓":" ✗"))).join(" → ");
+L.push(n+". "+(I.k=="mc"?"["+I.a[0]+"] ":"")+ans+" (попыток: "+r.a.length+")"+(r.done&&!r.ok&&I.k=="gap"?" — правильно: "+I.a[0]:""))});
+L.push("","— Task 5 (письменно) —",S.op.trim()||"не выполнено","");
+const bad=ORDER.filter(id=>st(id).a.length>1||(st(id).done&&!st(id).ok)).map(id=>ITEMS[id].a[0]);
+L.push("Что стоит повторить: "+(bad.length?[...new Set(bad)].join(", "):"ошибок нет"));
+return{sc,txt:L.join("\n")}}
+function refresh(){const R=report();$("#sc").textContent=R.sc;$("#rp").value=R.txt}
+$("#cp").onclick=()=>{const R=report(),ta=$("#rp");ta.value=R.txt;const done=()=>{$("#cf").textContent="Результаты скопированы. Теперь отправь их учителю.";$("#cf").className="fb g"};
+const fb=()=>{ta.focus();ta.select();try{document.execCommand("copy")?done():man()}catch(e){man()}};
+const man=()=>{$("#cf").textContent="Не удалось скопировать автоматически. Текст выделен — скопируй его вручную и отправь учителю.";$("#cf").className="fb r"};
+if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(R.txt).then(done).catch(fb);else fb()};
+$("#op").value=S.op;$("#op").oninput=e=>{S.op=e.target.value;save();refresh()};
+$("#rs").onclick=()=>{if(confirm("Delete all answers and start again?")){try{localStorage.removeItem("f311")}catch(e){}location.reload()}};
+build();card();
+</script></body></html>
